@@ -1,22 +1,22 @@
-# Battleship 
- 
-##Learning Competencies 
+# Battleship
 
-##Summary 
+##Learning Competencies
 
- Build an interactive command-line game of Battleship!  The full rules are on  [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
-  
+##Summary
+
+ Build an interactive command-line game of Battleship! The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
+
 1. Each player has two 10x10 boards with columns labeled 1-10 and rows labeled A-J, one labeled "Your Ships" to represent their own ships and one to represent their opponent's board, labeled "Enemy Ships"
 2. Each player arranges their ships on their own board (see fleet table)
-3. Take turns firing a salvo at your opponent, calling out squares as "A3", "B6", etc.  Salvo = number of your ships you have left (use counter) / 1 shot.
-4. Mark salvos fired on the "Enemy Ships" grid (`/` marks a miss, i.e. water; `X` marks a hit).  You must call out when your ship is sunk completely.
+3. Take turns firing a salvo at your opponent, calling out squares as "A3", "B6", etc. Salvo = number of your ships you have left (use counter) / 1 shot.
+4. Mark salvos fired on the "Enemy Ships" grid (`/` marks a miss, i.e. water; `X` marks a hit). You must call out when your ship is sunk completely.
 
 ```text
 # Fleet table
 
 | #  | Ship             | Size |
 | -- | ---------------- | ---- |
-| 1x | Aircraft carrier | 5    |      
+| 1x | Aircraft carrier | 5    |
 | 1x | Battleship       | 4    |
 | 1x | Cruiser          | 3    |
 | 2x | Destroyer        | 2    |
@@ -24,8 +24,6 @@
 ```
 
 ## Objectives
-
-
 
 ### Setting up the environment
 
@@ -47,8 +45,8 @@
 
 ### Refactoring
 
-Refactor your code.  Some questions to ask yourself:
-  
+Refactor your code. Some questions to ask yourself:
+
 - Is it DRY?
 - Are the methods and variables appropriately named?
 - Does it utilize appropriate data structures?
@@ -60,11 +58,11 @@ Refactor your code.  Some questions to ask yourself:
 - Fleet has 7 ships, 2x submarines and destroyers
 - User can play against another user
 - Computer can play against itself
-- Computer is somewhat intelligent (i.e. it knows to cluster shots near a hit until a ship is sunk) 
+- Computer is somewhat intelligent (i.e. it knows to cluster shots near a hit until a ship is sunk)
 
 ##Releases
-###Release 0 
+###Release 0
 
-##Optimize Your Learning 
+##Optimize Your Learning
 
 ##Resources
