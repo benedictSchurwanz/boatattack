@@ -2,6 +2,8 @@
 
 ##Learning Competencies
 
+* Model a real world system using ruby code
+
 ##Summary
 
  Build an interactive command-line game of Battleship! The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
@@ -11,7 +13,7 @@
 3. Take turns firing a salvo at your opponent, calling out squares as "A3", "B6", etc. A salvo is the number of shots equal to the number of ships you have left.
 4. Mark salvos fired on the "Enemy Ships" grid (`/` marks a miss, i.e. water; `X` marks a hit). You must call out when your ship is sunk completely.
 
-## Fleet table
+### Fleet table
 
 | #  | Ship             | Size |
 | -- | ---------------- | ---- |
@@ -21,27 +23,27 @@
 | 2x | Destroyer        | 2    |
 | 2x | Submarine        | 1    |
 
-## Objectives
+##Releases
 
-### Setting up the environment
+###Release 0 : Setting up the environment
 
 - User plays against the computer.
 - When starting a new game, each player should have two empty boards: 'HOME' and 'ENEMY'.
 - User should be able to determine the position of ships on their 'HOME' board OR the computer should seed the board with the ships pre-positioned.
 - Start with a fleet of just 5 ships, one of each type.
 
-### Determining gameplay
+###Release 1 :  Determining gameplay
 
 - The game starts with user firing a salvo (a series of shots) at their opponent's (the computer's) ships.
 - The number of shots in a salvo is equal to the number of unsunk ships in a player's fleet.
 - After a salvo is fired, the user is notified of hits and misses on their 'ENEMY' board.
 
-### Winning the game
+###Release 2 :  Winning the game
 
 - The user should be notified when they have sunk one of their opponent's ships.
 - When the user has sunk all of their opponent's ships, they win the game.
 
-### Refactoring
+###Release 3 :  Refactoring
 
 Refactor your code. Some questions to ask yourself:
 
@@ -51,16 +53,13 @@ Refactor your code. Some questions to ask yourself:
 - Is there proper commenting?
 - Is it concise and comprehensible?
 
-### Optional features
+###Release 4 : Add features (optional)
 
 - Fleet has 7 ships, adding both a submarine and a destroyer.
 - User can play against another user.
 - Computer can play against itself.
 - Computer is somewhat intelligent (i.e. it knows to cluster shots near a hit until a ship is sunk).
 
-##Releases
-###Release 0
-
-##Optimize Your Learning
+<!-- ##Optimize Your Learning -->
 
 ##Resources
