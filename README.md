@@ -2,10 +2,10 @@
 
 ## Summary
 
-In this challenge, we'll model a simple real-world system in Ruby code.  We're going to build an interactive command-line game of Battleship. The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
+In this challenge, we'll model a simple real-world system in Ruby code.  We're going to build an interactive command-line game of Battleship.  The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
 
-- The game is played between two players.
-- Each player has a 10 x 10 board with columns labeled 1 - 10 and rows labeled A - J. 
+- The game is played between two players (one human, one computer).
+- Each player has a 10 x 10 board with columns labeled 1 - 10 and rows labeled A - J (see file `board.txt`). 
 - Players have their own fleets of ships and arrange them on their own boards.
 - Players take turns firing on their opponent's ships, taking as many shots per turn as the number of their unsunk ships.
 - Shot locations are called out by referencing board coordinates (e.g., "A3", "B6", etc).
@@ -31,14 +31,12 @@ In this challenge, we'll model a simple real-world system in Ruby code.  We're g
 Different versions of the game use differently sized fleets.  For this challenge, we can use the ships listed in Table 1 or another variant.  But, each player should use the same fleet.
 
 
-##Releases
+## Releases
+### Release 0: Placing Ships
+Before players can begin firing on each other's fleets, they need to position their fleets on their respective boards.  Both players—human and computer—should position their fleets of ships on a board.
 
-###Release 0 : Setting up the environment
+The computer player's fleet should be placed automatically.  The human player should be able to place ships manually or choose to have the fleet placed automatically.
 
-- User plays against the computer.
-- When starting a new game, each player should have two empty boards: 'HOME' and 'ENEMY'.
-- User should be able to determine the position of ships on their 'HOME' board OR the computer should seed the board with the ships pre-positioned.
-- Start with a fleet of just 5 ships, one of each type.
 
 ###Release 1 :  Determining gameplay
 
