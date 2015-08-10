@@ -50,15 +50,15 @@ We'll have to control how the computer plays; the computer player will need to i
 Players take turn firing upon each other's fleets until every ship in one of the fleets has been sunk.  At that point, the game is over, and the player whose fleet has unsunk ships is the winner.
 
 
-###Release 3 :  Refactoring
+### Release 3:  Refactoring
+Let's take some time to improve the quality of our code.  We can ask ourselves ...
 
-Refactor your code. Some questions to ask yourself:
-
-- Is it DRY?
-- Are the methods and variables appropriately named?
+- Is the code DRY?
+- Are methods and variables appropriately named?
 - Does it utilize appropriate data structures?
 - Is there proper commenting?
-- Is it concise and comprehensible?
+- Is the code concise and readable?
+
 
 ###Release 4 : Add features (optional)
 
