@@ -41,15 +41,14 @@ The computer player's fleet should be placed automatically.  The human player sh
 ### Release 1:  Gameplay
 Once the fleets have been placed on the boards, the players can begin firing salvos at each other—first one player and then the other.
 
-In turn, players identify the locations on the opponent's board where they are firing.  A player identifies a number of locations upon which to fire equal to the number of remaining ships in the player's fleet.  If a player has three ships remaining, three locations are identified.  After all of the locations have been identified, the player is notified of hits and misses.
+In turn, players identify the locations on the opponent's board where they are firing.  A player identifies a number of locations upon which to fire equal to the number of remaining ships in the player's fleet.  If a player has three ships remaining, three locations are identified.  After all of the locations have been identified, the player is notified of hits and misses and also whether any of the opponent's ships have been sunk.
 
 We'll have to control how the computer plays; the computer player will need to identify locations upon which to fire.  To begin, the computer doesn't need to be an expert player—let's just get it to fire shots.
 
 
-###Release 2 :  Winning the game
+### Release 2:  Winning the Game
+Players take turn firing upon each other's fleets until every ship in one of the fleets has been sunk.  At that point, the game is over, and the player whose fleet has unsunk ships is the winner.
 
-- The user should be notified when they have sunk one of their opponent's ships.
-- When the user has sunk all of their opponent's ships, they win the game.
 
 ###Release 3 :  Refactoring
 
