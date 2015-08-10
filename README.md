@@ -60,13 +60,12 @@ Let's take some time to improve the quality of our code.  We can ask ourselves .
 - Is the code concise and readable?
 
 
-###Release 4 : Add features (optional)
+### Release 4: Add Features (optional)
+Do we want to add any features to our Battleship game?
 
-- Fleet has 7 ships, adding both a submarine and a destroyer.
-- User can play against another user.
-- Computer can play against itself.
-- Computer is somewhat intelligent (i.e. it knows to cluster shots near a hit until a ship is sunk).
+- Can we play games with different fleets?
+- Can we play games with two human or two computer players?
+- Can we improve the computer player (e.g., clustering shots near hits until a ship is sunk)?
 
-<!-- ##Optimize Your Learning -->
 
 ##Resources
