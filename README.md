@@ -68,4 +68,5 @@ Do we want to add any features to our Battleship game?
 - Can we improve the computer player (e.g., clustering shots near hits until a ship is sunk)?
 
 
-##Resources
+## Conclusion
+Battleship presented us with a lot of challenges.  There is a lot of data to keep track of.  What ships are there?  Where is each ship?  How many times has a ship been hit?  Where have players fired shots?  We also needed to design a user interface to display boards, get the locations of shots, etc.  How well were we able to maintain the quality of our code?  We we able to keep things well organized among the complexity of the game?
