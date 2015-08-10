@@ -38,11 +38,13 @@ Before players can begin firing on each other's fleets, they need to position th
 The computer player's fleet should be placed automatically.  The human player should be able to place ships manually or choose to have the fleet placed automatically.
 
 
-###Release 1 :  Determining gameplay
+### Release 1:  Gameplay
+Once the fleets have been placed on the boards, the players can begin firing salvos at each other—first one player and then the other.
 
-- The game starts with user firing a salvo (a series of shots) at their opponent's (the computer's) ships.
-- The number of shots in a salvo is equal to the number of unsunk ships in a player's fleet.
-- After a salvo is fired, the user is notified of hits and misses on their 'ENEMY' board.
+In turn, players identify the locations on the opponent's board where they are firing.  A player identifies a number of locations upon which to fire equal to the number of remaining ships in the player's fleet.  If a player has three ships remaining, three locations are identified.  After all of the locations have been identified, the player is notified of hits and misses.
+
+We'll have to control how the computer plays; the computer player will need to identify locations upon which to fire.  To begin, the computer doesn't need to be an expert player—let's just get it to fire shots.
+
 
 ###Release 2 :  Winning the game
 
