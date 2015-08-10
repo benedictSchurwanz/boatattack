@@ -1,27 +1,35 @@
 # Battleship
 
-##Learning Competencies
+## Summary
 
-* Model a simple real-world system in Ruby code
+In this challenge, we'll model a simple real-world system in Ruby code.  We're going to build an interactive command-line game of Battleship. The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
 
-##Summary
+- The game is played between two players.
+- Each player has a 10 x 10 board with columns labeled 1 - 10 and rows labeled A - J. 
+- Players have their own fleets of ships and arrange them on their own boards.
+- Players take turns firing on their opponent's ships, taking as many shots per turn as the number of their unsunk ships.
+- Shot locations are called out by referencing board coordinates (e.g., "A3", "B6", etc).
+- On a board, shots that miss are represented with a `/` and hits are represented with an `X`.
+- Opponents must be alerted when a ship is sunk completely.
+- Ships are sunk when they've been hit a number of times equal to their size (i.e., the opponent has fired on each board location occupied by the ship).
 
- Build an interactive command-line game of Battleship! The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
+*Note:* We might be more familiar with a different rule variant than the one described.
 
-1. Each player has two 10x10 boards with columns labeled 1-10 and rows labeled A-J, one labeled "Your Ships" to represent their own ships and one to represent their opponent's board, labeled "Enemy Ships."
-2. Each player arranges their ships on their own board, see the fleet table below.
-3. Take turns firing a salvo at your opponent, calling out squares as "A3", "B6", etc. A salvo is the number of shots equal to the number of ships you have left.
-4. Mark salvos fired on the "Enemy Ships" grid (`/` marks a miss, i.e. water; `X` marks a hit). You must call out when your ship is sunk completely.
 
-### Fleet table
+### Fleet of Ships
 
-| #  | Ship             | Size |
-| -- | ---------------- | ---- |
-| 1x | Aircraft carrier | 5    |
-| 1x | Battleship       | 4    |
-| 1x | Cruiser          | 3    |
-| 2x | Destroyer        | 2    |
-| 2x | Submarine        | 1    |
+| Ship       | Size | Quantity |
+| :--------- | ----:| --------:|
+| Carrier    | 5    | 1        |
+| Battleship | 4    | 1        |
+| Cruiser    | 3    | 1        |
+| Destroyer  | 2    | 2        |
+| Submarine  | 1    | 2        |
+
+*Table 1*.  Details for ships in each player's fleet.
+
+Different versions of the game use differently sized fleets.  For this challenge, we can use the ships listed in Table 1 or another variant.  But, each player should use the same fleet.
+
 
 ##Releases
 
