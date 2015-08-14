@@ -5,7 +5,7 @@
 In this challenge, we'll model a simple real-world system in Ruby code.  We're going to build an interactive command-line game of Battleship.  The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
 
 - The game is played between two players (one human, one computer).
-- Each player has a 10 x 10 board with columns labeled 1 - 10 and rows labeled A - J (see file `board.txt`). 
+- Each player has a 10 x 10 board with columns labeled 1 - 10 and rows labeled A - J (see file `board.txt`).
 - Players have their own fleets of ships and arrange them on their own boards.
 - Players take turns firing on their opponent's ships, taking as many shots per turn as the number of their unsunk ships.
 - Shot locations are called out by referencing board coordinates (e.g., "A3", "B6", etc).
@@ -69,4 +69,4 @@ Do we want to add any features to our Battleship game?
 
 
 ## Conclusion
-Battleship presented us with a lot of challenges.  There is a lot of data to keep track of.  What ships are there?  Where is each ship?  How many times has a ship been hit?  Where have players fired shots?  We also needed to design a user interface to display boards, get the locations of shots, etc.  How well were we able to maintain the quality of our code?  We we able to keep things well organized among the complexity of the game?
+Battleship presented us with a lot of challenges.  There is a lot of data to keep track of.  What ships are there?  Where is each ship?  How many times has a ship been hit?  Where have players fired shots?  We also needed to design a user interface to display boards, get the locations of shots, etc.  How well were we able to maintain the quality of our code?  Were we able to keep things well organized among the complexity of the game?
