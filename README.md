@@ -5,7 +5,7 @@
 In this challenge, we'll model a simple real-world system in Ruby code.  We're going to build an interactive command-line game of Battleship.  The full rules are on [wikipedia](http://en.wikipedia.org/wiki/Battleship_\(game\)), but here's an abridged version from [Samuel Bednar](http://en.wikipedia.org/wiki/File:Battleships_Paper_Game.svg):
 
 - The game is played between two players (one human, one computer).
-- Each player has a 10 x 10 board with columns labeled 1 - 10 and rows labeled A - J (see file `board.txt`).
+- Each player has a 10 x 10 board with rows labeled 1 - 10 and columns labeled A - J (see file `board.txt`).
 - Players have their own fleets of ships and arrange them on their own boards.
 - Players take turns firing on their opponent's ships, taking as many shots per turn as the number of their unsunk ships.
 - Shot locations are called out by referencing board coordinates (e.g., "A3", "B6", etc).
