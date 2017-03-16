@@ -2,7 +2,9 @@
 
 This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game. 
 
-This is intended to be nothing more than a fun solo project. 
+This is intended to be nothing more than a fun solo project for coding practice. 
+
+I intend to work out the game logic as a text-based terminal command-line interface, then add Rails and Javascript browser-based interface. 
 
 Challenge format (readme below) borrowed from Dev Bootcamp (Chicago Salamanders 2016)
 
