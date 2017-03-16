@@ -6,8 +6,22 @@ This is intended to be nothing more than a fun solo project for coding practice.
 
 I intend to work out the game logic as a text-based terminal command-line interface, then add Rails and Javascript browser-based interface. 
 
-Challenge format (readme below) borrowed from Dev Bootcamp (Chicago Salamanders 2016)
+I intend to practice Agile workflow and good Git hygiene as if this were a team project, although I'll be working by myself.
 
+
+### Additional Resources
+
+- [Git Workflow for Teams](https://gist.github.com/mikelikesbikes/ccbf4c7fd90e647138c6)
+- [Git: Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing/conceptual-overview)
+- [Git Resources](http://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
+- [Manifesto for Agile Practices](http://agilemanifesto.org/)
+- [Trello](https://trello.com/) - great resource to organize workflow within a group project
+
+
+Command-line challenge format (readme below) borrowed from Dev Bootcamp (Chicago Salamanders 2016)
+
+
+# Battleship
 
 ## Summary
 
