@@ -1,5 +1,11 @@
-# Battleship
-Borrowed from Dev Bootcamp (Chicago Salamanders 2016)
+# Boat Attack
+
+This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game. 
+
+This is intended to be nothing more than a fun solo project. 
+
+Challenge format (readme below) borrowed from Dev Bootcamp (Chicago Salamanders 2016)
+
 
 ## Summary
 
