@@ -8,6 +8,7 @@ I intend to work out the game logic as a text-based terminal command-line interf
 
 I intend to practice Agile workflow and good Git hygiene as if this were a team project, although I'll be working by myself.
 
+[Trello](https://trello.com/b/3tSJfxds/boat-attack) board for this project
 
 ### Additional Resources
 
