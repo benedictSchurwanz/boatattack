@@ -8,6 +8,18 @@ class Player
 		@fleet = boat_setup
 	end
 
+	def boats_remaining
+		afloat = 0
+
+		@fleet.each do |name, boat|
+			if boat.afloat?
+				afloat += 1
+			end
+		end
+
+		afloat
+	end
+
 	private
 
 	def blank_board
