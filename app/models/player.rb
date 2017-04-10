@@ -1,8 +1,11 @@
-class Player
-	attr_accessor :board
+require_relative 'boat'
 
-	def initialize(*args)
+class Player
+	attr_accessor :board, :fleet
+
+	def initialize
 		@board = blank_board
+		@fleet = boat_setup
 	end
 
 	private
@@ -20,5 +23,16 @@ class Player
 			9 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
 			10 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }
 		}
+	end
+
+	def boat_setup
+		{ carrier: Boat.new(length: 5),
+			battleship: Boat.new(length: 4),
+			cruiser: Boat.new(length: 3),
+			destroyer1: Boat.new(length: 2),
+			destroyer2: Boat.new(length: 2),
+			submarine1: Boat.new(length: 1),
+			submarine2: Boat.new(length: 1)
+		}		
 	end
 end
