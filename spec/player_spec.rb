@@ -35,4 +35,8 @@ describe 'Player' do
 	it 'knows how many boats are still afloat' do 
 		expect(player.boats_remaining).to eq 7
 	end
+
+	it 'knows how many shots it can fire this turn' do 
+		expect(player.shots).to eq player.boats_remaining
+	end
 end

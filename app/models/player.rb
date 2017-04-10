@@ -20,6 +20,10 @@ class Player
 		afloat
 	end
 
+	def shots
+		boats_remaining
+	end
+
 	private
 
 	def blank_board
