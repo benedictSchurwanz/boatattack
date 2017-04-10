@@ -1,11 +1,16 @@
 require 'pry'
 
 class Boat
-	attr_reader :name, :length
+	attr_reader :name, :length, :hit_points
 
 	def initialize(args)
 		@length = args[:length]
 		@name = boat_namer
+		@hit_points = args[:length]
+	end
+
+	def sunk?
+		@hit_points <= 0
 	end
 
 	private

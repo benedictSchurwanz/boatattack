@@ -16,11 +16,11 @@ describe 'Boat' do
 	end
 
 	it 'knows how many times it has been hit' do 
-
+		expect(test_boat.hit_points).to eq 3
 	end
 
 	it 'has a sunk status' do 
-
+		expect(test_boat.sunk?).to eq false
 	end
 
 	xit 'knows its location on the board' do 
