@@ -41,8 +41,7 @@ number of shots per turn is equal to number of boats player has in play
 	- one turn has two players
 
 * Player object
-
-* Board object
+	- Board attribute
 
 * Cell objects
 

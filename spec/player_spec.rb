@@ -12,6 +12,10 @@ describe 'the board' do
 	end
 
 	it 'has a board with 10 columns' do 
-		expect(player_1.board[0].length).to eq 10
+		expect(player_1.board[1].length).to eq 10
+	end
+
+	it 'has cells that can be referenced by coordinates' do 
+		expect(player_1.board[1][:a]).to eq 0
 	end
 end
