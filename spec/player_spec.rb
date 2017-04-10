@@ -17,5 +17,6 @@ describe 'the board' do
 
 	it 'has cells that can be referenced by coordinates' do 
 		expect(player_1.board[1][:a]).to eq 0
+		expect(player_1.board[10][:j]).to eq 0
 	end
 end
