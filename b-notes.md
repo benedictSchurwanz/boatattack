@@ -5,7 +5,7 @@ board: 10x10 - array? hash would allow storage of hit/miss/empty in each cell. c
 
 information needed to be stored in each cell: 
 	- boat type (or empty)
-	- hit (X), miss (/), not-yet-hit (nil)
+	- hit (X), miss (/), not-yet-hit (0)
 	* could make a "cell" object
 
 ships: 					length
