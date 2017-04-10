@@ -12,7 +12,7 @@ describe 'Boat' do
 	end
 
 	it 'has a length' do 
-		expect(test_boat.length.class).to eq Integer
+		expect(test_boat.length).to eq 3
 	end
 
 	it 'knows how many times it has been hit' do 
