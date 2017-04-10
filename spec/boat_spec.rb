@@ -23,6 +23,10 @@ describe 'Boat' do
 		expect(test_boat.sunk?).to eq false
 	end
 
+	it 'knows how many times its been hit' do 
+		expect(test_boat.hits).to eq 0
+	end
+
 	xit 'knows its location on the board' do 
 
 	end

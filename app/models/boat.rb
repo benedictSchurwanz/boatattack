@@ -13,6 +13,10 @@ class Boat
 		@hit_points <= 0
 	end
 
+	def hits
+		@length - @hit_points
+	end
+
 	private
 
 	def boat_namer
