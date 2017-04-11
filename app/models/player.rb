@@ -1,4 +1,5 @@
 require_relative 'boat'
+require_relative 'cell'
 
 class Player
 	attr_accessor :board, :fleet
