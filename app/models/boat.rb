@@ -1,10 +1,16 @@
 class Boat
 	attr_reader :name, :length, :hit_points
+	attr_accessor :cells
 
 	def initialize(args)
 		@length = args[:length]
 		@name = boat_namer
 		@hit_points = args[:length]
+	end
+
+	# boat has been hit? invoke this method
+	def im_hit
+		@hit_points -= 1
 	end
 
 	def sunk?
