@@ -1,6 +1,6 @@
 require_relative '../app/models/player'
 
-describe 'the board' do 
+describe 'board initialization' do 
 	let(:player_1) { Player.new }
 
 	it 'has a board' do 
@@ -16,8 +16,8 @@ describe 'the board' do
 	end
 
 	it 'has cells that can be referenced by coordinates' do 
-		expect(player_1.board[1][:a]).to eq 0
-		expect(player_1.board[10][:j]).to eq 0
+		expect(player_1.board[1][:a].hit_status).to eq '0'
+		expect(player_1.board[10][:j].hit_status).to eq '0'
 	end
 end
 

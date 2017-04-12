@@ -16,8 +16,4 @@ describe 'game setup' do
 			expect(computer_player.type).to eq :computer
 		end
 	end
-
-	context 'board initialization' do 
-
-	end
 end
