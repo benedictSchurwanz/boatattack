@@ -1,5 +1,5 @@
 class Cell
-	attr_reader :hit_status
+	attr_accessor :hit_status
 	attr_accessor :boat
 
 	def initialize
