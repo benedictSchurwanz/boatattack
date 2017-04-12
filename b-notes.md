@@ -27,6 +27,7 @@ boat behavior:
 player object needs to know: 
 	- how many boats are still alive - how many shots I have
 	- how many opponent boats are still alive
+	- its own board and the boats on it
 
 a game is composed of turns
 
@@ -53,6 +54,27 @@ number of shots per turn is equal to number of boats player has in play
 ## Game Setup
 
 * create one computer player object and one human player object
+* player objects, on initialization, create a blank board filled with empty cells
+* place boats in cells 
+	* random:
+		- start with a boat
+			- pick a random spot
+			- pick a random direction: vertical or horizontal
+			- before placing the boat, check a number of cells equal to the length of the boat, to make sure they're empty
+				- always go right if horizontal, down if vertical
+					- IF an edge is encountered, or if the cell contains a boat (cell.boat != 'empty'), go to the other end of the boat and start traveling left/up 
+					- if at any point a cell is not empty, pick a new direction: vertical or horizontal
+					- if the second direction fails to find enough empty cells, pick a new random spot
+					- when successful, return an array of the empty cells
+				- if there are enough empty spaces, put the current boat object in each of the cells, and put the cell objects in the boat's list of cells
+		- continue until all boats are placed
+
+	* need methods: 
+		- traverse forward (right/down)
+		- traverse backward (left/up)
+			- traversal methods: 
+				- you could separate the grabbing of the cells, and then pass the cell collection into a checker method
+					- grab_forward, grab_backward, empty_checker
 
 
 ## Gameplay
