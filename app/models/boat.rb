@@ -6,6 +6,15 @@ class Boat
 		@length = args[:length]
 		@name = boat_namer
 		@hit_points = args[:length]
+		@cells = []
+	end
+
+	# pass in as arguments the list of cells that this boat will occupy
+	# TBI: verify that the number of cells is equal to the boat length
+	def place_boat_in(*args)
+		args.each do |cell|
+			@cells << cell
+		end
 	end
 
 	# boat has been hit? invoke this method
