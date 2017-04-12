@@ -2,27 +2,12 @@ require_relative 'boat'
 require_relative 'cell'
 
 class Player
-	attr_accessor :board, :fleet
+	attr_accessor :board
+	attr_reader :type
 
-	def initialize
+	def initialize(options = {})
 		@board = blank_board
-		@fleet = boat_setup
-	end
-
-	def boats_remaining
-		afloat = 0
-
-		@fleet.each do |name, boat|
-			if boat.afloat?
-				afloat += 1
-			end
-		end
-
-		afloat
-	end
-
-	def shots
-		boats_remaining
+		@type = options[:type]
 	end
 
 	private

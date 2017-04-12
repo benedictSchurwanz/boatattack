@@ -52,6 +52,7 @@ number of shots per turn is equal to number of boats player has in play
 
 ## Game Setup
 
+* create one computer player object and one human player object
 
 
 ## Gameplay
