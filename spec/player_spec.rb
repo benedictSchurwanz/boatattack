@@ -16,8 +16,8 @@ describe 'board initialization' do
 	end
 
 	it 'has cells that can be referenced by coordinates' do 
-		expect(player_1.board[1][:a].hit_status).to eq '0'
-		expect(player_1.board[10][:j].hit_status).to eq '0'
+		expect(player_1.board[1][:a].hit_status).to eq 'open'
+		expect(player_1.board[10][:j].hit_status).to eq 'open'
 	end
 end
 
