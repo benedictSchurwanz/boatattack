@@ -15,6 +15,10 @@ class Boat
 		@cells = []
 	end
 
+	def occupy(cells)
+		@cells = cells
+	end
+
 	def im_hit
 		@hit_points -= 1
 	end
