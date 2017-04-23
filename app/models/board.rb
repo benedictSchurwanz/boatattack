@@ -13,6 +13,14 @@ class Board
 		@board[random_row][random_column]
 	end
 
+	def random_empty_cell
+		begin
+			cell = random_cell
+		end while cell.boat != :empty
+
+		cell
+	end
+
 	private
 
 	def blank_board
