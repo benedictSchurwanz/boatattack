@@ -21,6 +21,14 @@ class Board
 		cell
 	end
 
+	def random_occupied_cell
+		begin
+			cell = random_cell
+		end while cell.boat == :empty
+
+		cell
+	end
+
 	private
 
 	def blank_board
