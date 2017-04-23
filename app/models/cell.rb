@@ -12,4 +12,8 @@ class Cell
 		@x = x
 		@y = y
 	end
+
+	def occupied_by(boat)
+		@boat = boat
+	end
 end
