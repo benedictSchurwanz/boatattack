@@ -20,4 +20,8 @@ class Cell
 	def hit
 		@hit_status = 'hit'
 	end
+
+	def miss
+		@hit_status = 'miss'
+	end
 end
