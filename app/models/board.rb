@@ -1,8 +1,8 @@
 require_relative 'cell'
 
 class Board
-	ROWS = (1..10).to_a
-	COLUMNS = [:a, :b, :c, :d, :e, :f, :g, :h, :i, :j]
+	ROWS = (0..9).to_a
+	COLUMNS = (0..9).to_a
 	DIRECTIONS = [:up, :right, :down, :left]
 
 	def initialize
