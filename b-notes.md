@@ -49,6 +49,9 @@ number of shots per turn is equal to number of boats player has in play
 * Boat objects
 
 
+#### misc notes
+
+	# old style columns [:a, :b, :c, :d, :e, :f, :g, :h, :i, :j]
 
 
 ## Game Setup
@@ -56,18 +59,7 @@ number of shots per turn is equal to number of boats player has in play
 * create one computer player object and one human player object
 * player objects, on initialization, create a blank board filled with empty cells
 * place boats in cells 
-	* random:
-		- start with a boat
-			- pick a random spot
-			- pick a random direction: vertical or horizontal
-			- before placing the boat, check a number of cells equal to the length of the boat, to make sure they're empty
-				- always go right if horizontal, down if vertical
-					- IF an edge is encountered, or if the cell contains a boat (cell.boat != 'empty'), go to the other end of the boat and start traveling left/up 
-					- if at any point a cell is not empty, pick a new direction: vertical or horizontal
-					- if the second direction fails to find enough empty cells, pick a new random spot
-					- when successful, return an array of the empty cells
-				- if there are enough empty spaces, put the current boat object in each of the cells, and put the cell objects in the boat's list of cells
-		- continue until all boats are placed
+	* random now, manual TBI
 
 	* need methods: 
 		- traverse forward (right/down)
@@ -75,6 +67,33 @@ number of shots per turn is equal to number of boats player has in play
 			- traversal methods: 
 				- you could separate the grabbing of the cells, and then pass the cell collection into a checker method
 					- grab_forward, grab_backward, empty_checker
+
+
+### Boat Placement Algorithm
+
+* random:
+	- start with a boat
+		- pick a random spot
+		- pick a random direction: vertical or horizontal
+		- before placing the boat, check a number of cells equal to the length of the boat, to make sure they're empty
+			- always go right if horizontal, down if vertical
+				- IF an edge is encountered, or if the cell contains a boat (cell.boat != :empty), just pick a new spot
+				- when successful, return an array of the empty cells
+			- if there are enough empty spaces, put the current boat object in each of the cells, and put the cell objects in the boat's list of cells
+	- continue until all boats are placed
+
+* steps: 
+	- pick a boat (iterate thru boat list)
+	- pick a random empty cell (random_empty_cell)
+	- check if boat will fit horizontally (boat_will_fit?(horizontal = true))
+		- if not horizontally, check vertically (boat_will_fit?(horizontal = false))
+		- if not vertically, new cell (step 2)
+	- collect cells in question into an array (collect_cells)
+	- check if all cells are empty (cells_are_empty?(cells))
+		- if not, new cell (step 2)
+	- put the cells array in the boat (also place_boat)
+	- put boat in each of the cells in the array (place_boat)
+	- start again with the next boat (step 1)
 
 
 ## Gameplay
