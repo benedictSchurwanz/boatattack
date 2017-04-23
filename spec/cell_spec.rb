@@ -2,8 +2,8 @@ require_relative '../app/models/cell'
 require_relative '../app/models/boat'
 
 describe 'cell' do 
-	let(:test_cell) { Cell.new }
-	let(:test_two) { Cell.new }
+	let(:test_cell) { Cell.new(0, 0) }
+	let(:test_two) { Cell.new(9, 9) }
 	let(:test_boat) { Boat.new(length: 5) }
 
 
@@ -15,7 +15,7 @@ describe 'cell' do
 		expect(test_cell.boat).to eq :empty
 	end
 
-	it 'has cells that can be referenced by coordinates' do 
+	it 'cells can be referenced by coordinates' do 
 		expect(player_1.board[1][:a].hit_status).to eq 'open'
 		expect(player_1.board[10][:j].hit_status).to eq 'open'
 	end
