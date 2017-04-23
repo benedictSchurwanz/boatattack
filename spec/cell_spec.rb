@@ -8,11 +8,11 @@ describe 'cell' do
 
 
 	it 'knows whether its been hit, starts out open' do 
-		expect(test_cell.hit_status).to eq '0'
+		expect(test_cell.hit_status).to eq :open
 	end
 
 	it 'knows whether it holds part of a boat' do 
-		expect(test_cell.boat).to eq 'empty'
+		expect(test_cell.boat).to eq :empty
 	end
 	
 	context 'placing boats in cells' do

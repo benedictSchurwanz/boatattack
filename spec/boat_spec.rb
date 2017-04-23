@@ -28,7 +28,7 @@ describe 'Boat' do
 		expect(test_boat.hits).to eq 0
 	end
 
-	context 'boat placement' do 
+	xcontext 'boat placement' do 
 		let(:cell1) { Cell.new }
 		let(:cell2) { Cell.new }
 		let(:cell3) { Cell.new }

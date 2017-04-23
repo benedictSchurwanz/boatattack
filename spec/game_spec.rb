@@ -2,7 +2,7 @@ require_relative '../app/models/game'
 require_relative '../app/models/boat'
 require_relative '../app/models/cell'
 require_relative '../app/models/player'
-require_relative '../app/helpers/helpers'
+require_relative '../app/helpers/rand_helpers'
 
 describe 'game setup' do 
 	let(:human_player) { Player.new(type: :human) }
@@ -20,14 +20,14 @@ describe 'game setup' do
 		it 'creating a Game creates players' do 
 			game = Game.new
 
-			expect(game.player[:one].type).to eq :human
-			expect(game.player[:two].type).to eq :computer
+			expect(game.players[:one].type).to eq :human
+			expect(game.players[:two].type).to eq :computer
 		end
 	end
 
 	context 'random boat placement' do 
-		it 'can pick a random spot on the board' do 
-			expect(computer_player.board[rand_row][rand_col].boat).to eq 'empty'
+		xit 'can pick a random spot on the board' do 
+			expect(computer_player.board.random_cell.boat).to eq :empty
 		end
 	end
 end
