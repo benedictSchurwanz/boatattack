@@ -1,12 +1,26 @@
-require 'pry'
-
 class Boat
-	attr_reader :name, :length, :hit_points
+	attr_reader :name, :length, :hit_points, :player, :cells
 
 	def initialize(args)
-		@length = args[:length]
-		@name = boat_namer
-		@hit_points = args[:length]
+		if args[:length] 
+			@length = args[:length]
+			@name = boat_namer
+		elsif args[:name] 
+			@name = args[:name]
+			@length = boat_length
+		end
+
+		@player = args[:player]
+		@hit_points = @length
+		@cells = []
+	end
+
+	def occupy(cells)
+		@cells = cells
+	end
+
+	def hit
+		@hit_points -= 1
 	end
 
 	def sunk?
@@ -24,9 +38,14 @@ class Boat
 	private
 
 	def boat_namer
-		# creating an array such that the index corresponds to the length of the boat
-		names = [0, "submarine", "destroyer", "cruiser", "battleship", "carrier"]
+		names = [nil, "submarine", "destroyer", "cruiser", "battleship", "carrier"]
 
 		names[@length]
+	end
+
+	def boat_length
+		lengths = {"carrier" => 5, "battleship" => 4, "cruiser" => 3, "destroyer" => 2, "submarine" => 1}
+
+		lengths[@name]
 	end
 end

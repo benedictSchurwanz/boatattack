@@ -1,54 +1,34 @@
+require_relative 'board'
 require_relative 'boat'
+require_relative '../helpers/boat_helpers'
 
 class Player
-	attr_accessor :board, :fleet
+	attr_accessor :board, :volley
+	attr_reader :type, :fleet, :name
 
-	def initialize
-		@board = blank_board
-		@fleet = boat_setup
+	def initialize(options = {})
+		@board = Board.new
+		@name = options[:name]
+		@type = options[:type] # human or computer
+		@fleet = generate_fleet(options[:lengths])
+		@fleet ||= generate_fleet(bednar_fleet_lengths)
+		@volley = options[:volley]
+		@volley ||= @fleet.length
 	end
 
-	def boats_remaining
-		afloat = 0
-
-		@fleet.each do |name, boat|
-			if boat.afloat?
-				afloat += 1
-			end
-		end
-
-		afloat
-	end
-
-	def shots
-		boats_remaining
+	def boat_sunk
+		@volley -= 1
 	end
 
 	private
 
-	def blank_board
-		{			
-			1 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			2 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			3 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			4 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			5 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			6 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			7 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			8 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			9 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }, 
-			10 => { a: 0, b: 0, c: 0, d: 0, e: 0, f: 0, g: 0, h: 0, i: 0, j: 0 }
-		}
-	end
+	def generate_fleet(lengths)
+		fleet = []
 
-	def boat_setup
-		{ carrier: Boat.new(length: 5),
-			battleship: Boat.new(length: 4),
-			cruiser: Boat.new(length: 3),
-			destroyer1: Boat.new(length: 2),
-			destroyer2: Boat.new(length: 2),
-			submarine1: Boat.new(length: 1),
-			submarine2: Boat.new(length: 1)
-		}		
+		lengths.each do |boat_length|
+			fleet << Boat.new(length: boat_length, player: self)
+		end
+
+		fleet
 	end
 end
