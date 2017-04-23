@@ -21,12 +21,18 @@ class Cell
     if @boat != :empty
   		@hit_status = :hit
   		@boat.hit
+      return true
+    else
+      return false
     end
 	end
 
 	def miss
     if @boat == :empty
 		  @hit_status = :miss
+      return true
+    else
+      return false
     end
 	end
 end
