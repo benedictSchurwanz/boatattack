@@ -18,6 +18,12 @@ class Player
 		@volley ||= @fleet.length
 	end
 
+	def boats_remaining
+		boats = @fleet.find_all { |boat| boat.afloat? }
+
+		boats.length
+	end
+
 	def boat_sunk
 		@volley -= 1
 	end
