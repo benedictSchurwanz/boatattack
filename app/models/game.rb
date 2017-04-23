@@ -13,6 +13,12 @@ class Game
 		@players = {one: Player.new(name: "One", type: :human, lengths: lengths), two: Player.new(name: "Two", type: :computer, lengths: lengths)}
 	end
 
+	def setup
+		@players.each do |key, player|
+			place_fleet(player)
+		end
+	end
+
 	def place_fleet(player)
 		player.fleet.each do |boat|
 			length = boat.length
