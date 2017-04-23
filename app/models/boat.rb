@@ -15,12 +15,6 @@ class Boat
 		@cells_occupied = []
 	end
 
-	def place_boat_in(*args)
-		args.each do |cell|
-			@cells_occupied << cell
-		end
-	end
-
 	def im_hit
 		@hit_points -= 1
 	end
