@@ -22,7 +22,7 @@ class Board
 			board[row] = {}
 
 			COLUMNS.each do |col|
-				board[row][col] = Cell.new
+				board[row][col] = Cell.new(row, col)
 			end
 		end
 
