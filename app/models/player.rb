@@ -12,7 +12,8 @@ class Player
 		@type = options[:type] # human or computer
 		@fleet = generate_fleet(options[:lengths])
 		@fleet ||= generate_fleet(bednar_fleet_lengths)
-		@volley = @fleet.length
+		@volley = options[:volley]
+		@volley ||= @fleet.length
 	end
 
 	def boat_sunk
