@@ -7,11 +7,13 @@ class Player
 	attr_reader :type, :fleet, :name
 
 	def initialize(options = {})
+		lengths = options[:lengths]
+		lengths ||= bednar_fleet_lengths
+
 		@board = Board.new
 		@name = options[:name]
 		@type = options[:type] # human or computer
-		@fleet = generate_fleet(options[:lengths])
-		@fleet ||= generate_fleet(bednar_fleet_lengths)
+		@fleet = generate_fleet(lengths)
 		@volley = options[:volley]
 		@volley ||= @fleet.length
 	end
