@@ -1,5 +1,5 @@
 class Boat
-	attr_reader :name, :length, :hit_points
+	attr_reader :name, :length, :hit_points, :player
 
 	def initialize(args)
 		if args[:length] do
@@ -10,6 +10,7 @@ class Boat
 			@length = boat_length
 		end
 
+		@player = args[:player]
 		@hit_points = @length
 		@cells_occupied = []
 	end
