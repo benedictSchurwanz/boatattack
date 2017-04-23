@@ -1,6 +1,5 @@
 class Boat
 	attr_reader :name, :length, :hit_points
-	attr_accessor :cells
 
 	def initialize(args)
 		if args[:length] do
