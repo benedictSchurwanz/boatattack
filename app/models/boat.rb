@@ -19,7 +19,7 @@ class Boat
 		@cells = cells
 	end
 
-	def im_hit
+	def hit
 		@hit_points -= 1
 	end
 
