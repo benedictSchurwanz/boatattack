@@ -17,6 +17,6 @@ describe 'Player' do
 	end
 
 	it 'knows how many shots it can fire this turn' do 
-		expect(player.shots).to eq player.boats_remaining
+		expect(player.volley).to eq player.boats_remaining
 	end
 end

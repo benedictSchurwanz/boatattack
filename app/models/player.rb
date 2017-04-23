@@ -3,8 +3,8 @@ require_relative 'boat'
 require_relative '../helpers/boat_helpers'
 
 class Player
-	attr_accessor :board, :volley
-	attr_reader :type, :fleet, :name
+	attr_accessor :board
+	attr_reader :type, :fleet, :name, :volley
 
 	def initialize(options = {})
 		lengths = options[:lengths]
