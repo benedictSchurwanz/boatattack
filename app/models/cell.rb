@@ -5,7 +5,7 @@ class Cell
 	def initialize
 		# hit status will be '0' for not-yet-attacked, 
 		# 'X' for hit and '/' for missed
-		@hit_status = '0'
+		@hit_status = 'open'
 		# boat variable will hold the boat object that is in that spot
 		# boat objects will hold an array of cell objects it contains
 		@boat = 'empty'
