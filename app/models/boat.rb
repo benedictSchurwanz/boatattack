@@ -2,10 +2,10 @@ class Boat
 	attr_reader :name, :length, :hit_points, :player
 
 	def initialize(args)
-		if args[:length] do
+		if args[:length] 
 			@length = args[:length]
 			@name = boat_namer
-		elsif args[:name] do
+		elsif args[:name] 
 			@name = args[:name]
 			@length = boat_length
 		end
