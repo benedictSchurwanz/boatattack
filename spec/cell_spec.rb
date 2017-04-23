@@ -16,8 +16,8 @@ describe 'cell' do
 	end
 
 	it 'cells can be referenced by coordinates' do 
-		expect(player_1.board[1][:a].hit_status).to eq 'open'
-		expect(player_1.board[10][:j].hit_status).to eq 'open'
+		expect(test_cell.hit_status).to eq :open
+		expect(test_two.hit_status).to eq :open
 	end
 	
 	context 'placing boats in cells' do
