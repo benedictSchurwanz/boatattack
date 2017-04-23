@@ -18,11 +18,15 @@ class Cell
 	end
 
 	def hit
-		@hit_status = :hit
-		@boat.hit
+    if @boat != :empty
+  		@hit_status = :hit
+  		@boat.hit
+    end
 	end
 
 	def miss
-		@hit_status = :miss
+    if @boat == :empty
+		  @hit_status = :miss
+    end
 	end
 end
