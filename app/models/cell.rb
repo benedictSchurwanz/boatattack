@@ -1,6 +1,6 @@
 class Cell
-	attr_accessor :hit_status
-	attr_accessor :boat
+	attr_reader :hit_status, :boat, :x, :y
+
 
 	def initialize(x, y)
 		# hit status will be 'open', 'hit', or 'miss'
