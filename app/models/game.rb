@@ -13,6 +13,36 @@ class Game
 		@players = {one: Player.new(name: "One", type: :human, lengths: lengths), two: Player.new(name: "Two", type: :computer, lengths: lengths)}
 	end
 
+	def place_fleet(player)
+		player.fleet.each do |boat|
+			length = boat.length
+
+			loop do
+				cell = player.board.random_empty_cell
+
+				if boat_will_fit?(cell, length, :horizontal)
+					cells = collect_cells(cell, length, :horizontal, player)
+				elsif boat_will_fit?(cell, length, :vertical)
+					cells = collect_cells(cell, length, :vertical, player)
+				else
+					next
+				end
+
+				if cells_are_empty?(cells)
+					boat.occupy(cells)
+
+					cells.each do |cell|
+						cell.occupied_by(boat)
+					end
+
+					break
+				else
+					next
+				end
+			end 
+		end
+	end
+
 	private
 
 	def boat_will_fit?(starting_cell, boat_length, orientation)
