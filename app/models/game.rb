@@ -34,6 +34,16 @@ class Game
 		end
 	end
 
+	def cells_are_empty?(cells_array)
+		cells_array.each do |cell|
+			if cell.boat != :empty
+				return false
+			end
+		end
+
+		return true
+	end
+
 	def collect_cells(starting_cell, boat_length, orientation, player)
 		cells = []
 		row = starting_cell.x
