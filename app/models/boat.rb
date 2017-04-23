@@ -3,10 +3,10 @@ class Boat
 	attr_accessor :cells
 
 	def initialize(args)
-		if args[:length] do 
+		if args[:length] do
 			@length = args[:length]
 			@name = boat_namer
-		elsif args[:name] do 
+		elsif args[:name] do
 			@name = args[:name]
 			@length = boat_length
 		end
@@ -15,15 +15,12 @@ class Boat
 		@cells_occupied = []
 	end
 
-	# pass in as arguments the list of cells that this boat will occupy
-	# TBI: verify that the number of cells is equal to the boat length
 	def place_boat_in(*args)
 		args.each do |cell|
 			@cells_occupied << cell
 		end
 	end
 
-	# boat has been hit? invoke this method
 	def im_hit
 		@hit_points -= 1
 	end
@@ -43,7 +40,6 @@ class Boat
 	private
 
 	def boat_namer
-		# creating an array such that the index corresponds to the length of the boat
 		names = [nil, "submarine", "destroyer", "cruiser", "battleship", "carrier"]
 
 		names[@length]
