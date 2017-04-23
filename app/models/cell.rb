@@ -16,4 +16,8 @@ class Cell
 	def occupied_by(boat)
 		@boat = boat
 	end
+
+	def hit
+		@hit_status = 'hit'
+	end
 end
