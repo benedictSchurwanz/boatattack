@@ -2,7 +2,6 @@ require_relative '../app/models/game'
 require_relative '../app/models/boat'
 require_relative '../app/models/cell'
 require_relative '../app/models/player'
-require_relative '../app/helpers/rand_helpers'
 
 describe 'game setup' do 
 	let(:human_player) { Player.new(type: :human) }
