@@ -21,8 +21,8 @@ describe 'cell' do
 	end
 	
 	context 'placing boats in cells' do
-		before(:each) { test_cell.boat = test_boat }
-		before(:each) { test_two.boat = test_boat }
+		before(:each) { test_cell.occupied_by(test_boat) }
+		before(:each) { test_two.occupied_by(test_boat) }
 
 		it 'can hold a boat object' do 
 			expect(test_cell.boat).to eq test_boat
