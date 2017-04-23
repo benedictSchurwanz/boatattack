@@ -19,6 +19,7 @@ class Cell
 
 	def hit
 		@hit_status = 'hit'
+		@boat.hit
 	end
 
 	def miss
