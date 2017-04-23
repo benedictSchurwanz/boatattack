@@ -33,4 +33,26 @@ class Game
 			end
 		end
 	end
+
+	def collect_cells(starting_cell, boat_length, orientation, player)
+		cells = []
+		row = starting_cell.x
+		col = starting_cell.y
+
+		if orientation == :horizontal
+			boat_length.times do
+				cells << player.board.cell_at(row, col)
+
+				col += 1
+			end
+		else
+			boat_length.times do
+				cells << player.board.cell_at(row, col)
+
+				row += 1
+			end
+		end
+
+		cells
+	end
 end
