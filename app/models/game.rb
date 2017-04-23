@@ -12,4 +12,25 @@ class Game
 
 		@players = {one: Player.new(name: "One", type: :human, lengths: lengths), two: Player.new(name: "Two", type: :computer, lengths: lengths)}
 	end
+
+	private
+
+	def boat_will_fit?(starting_cell, boat_length, orientation)
+		x = starting_cell.x
+		y = starting_cell.y
+
+		if orientation == :horizontal
+			if (y + boat_length) < 10
+				return true
+			else
+				return false
+			end
+		elsif orientation == :vertical
+			if (x + boat_length) < 10
+				return true
+			else
+				return false
+			end
+		end
+	end
 end
