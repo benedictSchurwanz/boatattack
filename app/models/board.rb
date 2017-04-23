@@ -3,6 +3,7 @@ require_relative 'cell'
 class Board
 	ROWS = (1..10).to_a
 	COLUMNS = [:a, :b, :c, :d, :e, :f, :g, :h, :i, :j]
+	DIRECTIONS = [:up, :right, :down, :left]
 
 	def initialize
 		@board = blank_board
