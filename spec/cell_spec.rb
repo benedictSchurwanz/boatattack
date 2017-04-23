@@ -14,6 +14,11 @@ describe 'cell' do
 	it 'knows whether it holds part of a boat' do 
 		expect(test_cell.boat).to eq :empty
 	end
+
+	it 'has cells that can be referenced by coordinates' do 
+		expect(player_1.board[1][:a].hit_status).to eq 'open'
+		expect(player_1.board[10][:j].hit_status).to eq 'open'
+	end
 	
 	context 'placing boats in cells' do
 		before(:each) { test_cell.boat = test_boat }
