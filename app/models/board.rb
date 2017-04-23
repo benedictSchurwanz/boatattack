@@ -9,6 +9,10 @@ class Board
 		@board = blank_board
 	end
 
+	def cell_at(row, col)
+		@board[row][col]
+	end
+
 	def random_cell
 		@board[random_row][random_column]
 	end
