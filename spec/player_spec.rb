@@ -4,11 +4,12 @@ describe 'Player' do
 	let(:player) { Player.new }
 
 	it 'has boats' do 
-		expect(player.fleet).not_to be nil
+		expect(player.fleet[0]).to be_a Boat
 	end
 
 	it 'has a battleship' do 
 		battleship = player.fleet.find { |boat| boat.name == "battleship" }
+		
 		expect(battleship.length).to eq 4
 	end
 
