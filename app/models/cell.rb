@@ -13,21 +13,35 @@ class Cell
 		@boat = boat
 	end
 
-	def hit
-    if @boat != :empty && @hit_status == :open
-  		@hit_status = :hit
-      return true
+  def shot_at
+    if @hit_status == :open
+      if @boat == :empty
+        @hit_status = :miss
+      elsif @boat.class == Boat
+        @hit_status = :hit
+      else
+        return false
+      end
     else
       return false
     end
-	end
+  end
 
-	def miss
-    if @boat == :empty && @hit_status == :open
-		  @hit_status = :miss
-      return true
-    else
-      return false
-    end
-	end
+	# def hit
+ #    if @boat != :empty && @hit_status == :open
+ #  		@hit_status = :hit
+ #      return true
+ #    else
+ #      return false
+ #    end
+	# end
+
+	# def miss
+ #    if @boat == :empty && @hit_status == :open
+	# 	  @hit_status = :miss
+ #      return true
+ #    else
+ #      return false
+ #    end
+	# end
 end
