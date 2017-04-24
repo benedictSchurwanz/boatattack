@@ -30,13 +30,14 @@ describe 'game setup' do
 		end
 	end
 
-	xcontext 'boat placement' do 
-		let(:cell1) { Cell.new }
-		let(:cell2) { Cell.new }
-		let(:cell3) { Cell.new }
+	context 'boat placement' do 
+		let(:test_boat) { Boat.new(length: 3, player: human_player) }
+		let(:cell1) { Cell.new(1,1) }
+		let(:cell2) { Cell.new(1,2) }
+		let(:cell3) { Cell.new(1,3) }
 
 		before(:each) do 
-			test_boat.place_boat_in(cell1, cell2, cell3) 
+			test_boat.occupy([cell1, cell2, cell3]) 
 		end
 
 		it 'knows its location on the board' do 
