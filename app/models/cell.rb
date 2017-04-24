@@ -14,7 +14,7 @@ class Cell
 	end
 
 	def hit
-    if @boat != :empty
+    if @boat != :empty && @hit_status == :open
   		@hit_status = :hit
       return true
     else
@@ -23,7 +23,7 @@ class Cell
 	end
 
 	def miss
-    if @boat == :empty
+    if @boat == :empty && @hit_status == :open
 		  @hit_status = :miss
       return true
     else
