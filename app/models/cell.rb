@@ -16,7 +16,6 @@ class Cell
 	def hit
     if @boat != :empty
   		@hit_status = :hit
-  		@boat.hit
       return true
     else
       return false
