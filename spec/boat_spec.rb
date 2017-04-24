@@ -44,6 +44,10 @@ describe 'Boat' do
 		it 'not sunk with positive hit points' do 
 			expect(test_boat.sunk?).to be false
 		end
+
+		it 'is still afloat' do 
+			expect(test_boat.afloat?).to be true
+		end
 	end
 
 	context 'upon sinking:' do 
@@ -60,6 +64,10 @@ describe 'Boat' do
 
 		it 'has correct sunk status' do 
 			expect(test_boat.sunk?).to be true
+		end
+
+		it 'is not afloat' do 
+			expect(test_boat.afloat?).to be false
 		end
 
 		it 'cannot have negative hit points' do 
