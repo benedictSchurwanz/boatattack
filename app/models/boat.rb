@@ -16,7 +16,7 @@ class Boat
 	end
 
 	def occupy(cells)
-		@cells = cells
+		@cells = cells if cells.length == @length
 	end
 
 	def hit
