@@ -29,4 +29,18 @@ describe 'game setup' do
 			expect(computer_player.board.random_cell.boat).to eq :empty
 		end
 	end
+
+	xcontext 'boat placement' do 
+		let(:cell1) { Cell.new }
+		let(:cell2) { Cell.new }
+		let(:cell3) { Cell.new }
+
+		before(:each) do 
+			test_boat.place_boat_in(cell1, cell2, cell3) 
+		end
+
+		it 'knows its location on the board' do 
+			expect(test_boat.cells).to include cell3
+		end
+	end
 end
