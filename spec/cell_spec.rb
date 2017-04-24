@@ -7,11 +7,11 @@ describe 'cell' do
 	let(:test_boat) { Boat.new(length: 5) }
 
 
-	it 'knows whether its been hit, starts out open' do 
+	it 'starts out open' do 
 		expect(test_cell.hit_status).to eq :open
 	end
 
-	it 'knows whether it holds part of a boat' do 
+	it 'starts out empty' do 
 		expect(test_cell.boat).to eq :empty
 	end
 	
@@ -25,6 +25,35 @@ describe 'cell' do
 
 		it 'multiple cells can hold the same boat object' do 
 			expect(test_two.boat).to eq test_cell.boat
+		end
+	end
+
+	context 'can be hit or missed' do
+		before(:each) { test_boat.occupy([test_cell]) }
+		before(:each) { test_cell.occupied_by(test_boat) }
+
+		it 'can be hit if it contains a boat' do 
+			test_cell.shot_at
+
+			expect(test_cell.hit_status).to eq :hit
+		end
+
+		it "can't be hit if it doesn't contain a boat" do 
+			shot = test_two.shot_at
+
+			expect(test_two.hit_status).not_to eq :hit
+		end
+
+		it 'can be missed if it doesnt contain a boat' do 
+			test_two.shot_at
+
+			expect(test_two.hit_status).to eq :miss
+		end
+
+		it "can't be missed if it doesn't contain a boat" do 
+			test_cell.shot_at
+
+			expect(test_cell.hit_status).not_to eq :miss
 		end
 	end
 end
