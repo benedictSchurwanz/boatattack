@@ -12,7 +12,7 @@ class Player
 
 		@board = Board.new
 		@name = options[:name]
-		@type = options[:type] # human or computer
+		@type = options[:type] # :human or :computer
 		@fleet = generate_fleet(lengths)
 		@volley = options[:volley]
 		@volley ||= @fleet.length
