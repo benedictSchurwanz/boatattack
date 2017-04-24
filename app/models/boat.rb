@@ -20,7 +20,7 @@ class Boat
 	end
 
 	def hit
-		@hit_points -= 1
+		@hit_points -= 1 if @hit_points > 0
 	end
 
 	def sunk?
