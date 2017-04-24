@@ -24,12 +24,6 @@ describe 'game setup' do
 		end
 	end
 
-	context 'random boat placement' do 
-		xit 'can pick a random spot on the board' do 
-			expect(computer_player.board.random_cell.boat).to eq :empty
-		end
-	end
-
 	context 'boat placement' do 
 		let(:test_boat) { Boat.new(length: 3, player: human_player) }
 		let(:cell1) { Cell.new(1,1) }
