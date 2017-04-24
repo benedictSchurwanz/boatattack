@@ -50,17 +50,17 @@ class Game
 	private
 
 	def boat_will_fit?(starting_cell, boat_length, orientation)
-		x = starting_cell.x
-		y = starting_cell.y
+		row = starting_cell.row
+		col = starting_cell.col
 
 		if orientation == :horizontal
-			if (y + boat_length) < 10
+			if (col + boat_length) < 10
 				return true
 			else
 				return false
 			end
 		elsif orientation == :vertical
-			if (x + boat_length) < 10
+			if (row + boat_length) < 10
 				return true
 			else
 				return false
@@ -80,8 +80,8 @@ class Game
 
 	def collect_cells(starting_cell, boat_length, orientation, player)
 		cells = []
-		row = starting_cell.x
-		col = starting_cell.y
+		row = starting_cell.row
+		col = starting_cell.col
 
 		if orientation == :horizontal
 			boat_length.times do

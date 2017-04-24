@@ -1,12 +1,12 @@
 class Cell
-	attr_reader :hit_status, :boat, :x, :y
+	attr_reader :hit_status, :boat, :row, :col
 
-	def initialize(x, y)
+	def initialize(row, col)
 		@hit_status = :open # :open, :hit, or :miss
 		@boat = :empty # hold the boat object that is in this cell
 
-		@x = x
-		@y = y
+		@row = row
+		@col = col
 	end
 
 	def occupied_by(boat)
