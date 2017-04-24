@@ -14,11 +14,6 @@ describe 'cell' do
 	it 'knows whether it holds part of a boat' do 
 		expect(test_cell.boat).to eq :empty
 	end
-
-	it 'cells can be referenced by coordinates' do 
-		expect(test_cell.hit_status).to eq :open
-		expect(test_two.hit_status).to eq :open
-	end
 	
 	context 'placing boats in cells' do
 		before(:each) { test_cell.occupied_by(test_boat) }
