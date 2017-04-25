@@ -49,19 +49,26 @@ class Game
 
 	def turn(player, opponent)
 		volley = player.volley
-		target = opponent.choose_cell
 
-		opponent.fired_upon(target)
-		volley -= 1
-		
-		report_hit_status(target)
-		
-		if target.hit_status == :hit 
-			if target.boat.sunk? 
-				report_sunk(target.boat)
-				
-				opponent.boat_sunk
+		volley.times do 
+			target = opponent.choose_cell
+
+			opponent.fired_upon(target)
+			volley -= 1
+			
+			report_hit_status(target)
+			
+			if target.hit_status == :hit 
+				if target.boat.sunk? 
+					report_sunk(target.boat)
+					
+					opponent.boat_sunk
+				end
 			end
+		end
+
+		if opponent.defeated?
+			game_won_by(player)
 		end
 	end
 
