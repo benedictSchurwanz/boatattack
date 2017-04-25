@@ -47,6 +47,24 @@ class Game
 		end
 	end
 
+	def turn(player, opponent)
+		volley = player.volley
+		target = opponent.choose_cell
+
+		opponent.fired_upon(target)
+		volley -= 1
+		
+		report_hit_status(target)
+		
+		if target.hit_status == :hit 
+			if target.boat.sunk? 
+				report_sunk(target.boat)
+				
+				opponent.boat_sunk
+			end
+		end
+	end
+
 	private
 
 	def boat_will_fit?(starting_cell, boat_length, orientation)
