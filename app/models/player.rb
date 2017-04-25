@@ -29,6 +29,10 @@ class Player
 		@volley -= 1
 	end
 
+	def defeated?
+		boats_remaining <= 0
+	end
+
 	private
 
 	def generate_fleet(lengths)
