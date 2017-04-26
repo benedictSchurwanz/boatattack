@@ -38,4 +38,8 @@ describe 'game setup' do
 			expect(test_boat.cells).to include cell3
 		end
 	end
+
+	context "turn process" do 
+		
+	end
 end

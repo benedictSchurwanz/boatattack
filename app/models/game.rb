@@ -79,13 +79,13 @@ class Game
 		col = starting_cell.col
 
 		if orientation == :horizontal
-			if (col + boat_length) < 10
+			if (col + boat_length) <= 10
 				return true
 			else
 				return false
 			end
 		elsif orientation == :vertical
-			if (row + boat_length) < 10
+			if (row + boat_length) <= 10
 				return true
 			else
 				return false

@@ -17,7 +17,7 @@ game.players[:one].fleet.each do |boat|
 	puts boat.name
 	
 	boat.cells.each do |cell|
-		puts "(#{cell.x}, #{cell.y})\n"
+		puts "(#{cell.row}, #{cell.col})\n"
 	end
 
 	puts "\n"
