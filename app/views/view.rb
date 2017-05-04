@@ -1,6 +1,30 @@
-# class View
+module View # turn this into a module and include it in the Game class (the controller)
 	# print "\e[x;yH" - moves cursor to line x column y
 	# 
+
+	def report_shot(cell)
+		if cell.hit_status == :hit 
+			report_hit
+		elsif cell.hit_status == :miss
+			report_miss
+		end
+	end
+
+	def report_hit
+		print "You scored a hit!"
+	end
+
+	def report_miss
+		print "You missed."
+	end
+
+	def report_sunk(boat)
+		print "You sunk my #{boat.name}!"
+	end
+
+	def game_won_by(player)
+		print "#{player.name} wins!"
+	end
 
 	def clear_screen
 		print "\e[2J"
@@ -16,34 +40,81 @@
 	end
 
 	def print_empty_board
-		print "\n      A     B     C     D     E     F     G     H     I     J\n
-   +-----------------------------------------------------------+\n
- 1 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 2 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 3 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 4 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 5 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 6 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 7 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 8 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
- 9 |     |     |     |     |     |     |     |     |     |     |\n
-   |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|\n
-10 |     |     |     |     |     |     |     |     |     |     |\n
-   +-----------------------------------------------------------+\n\n"
+		print <<~EOS
+			\n     A   B   C   D   E   F   G   H   I   J
+			   +---------------------------------------+
+			 1 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 2 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 3 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 4 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 5 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 6 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 7 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 8 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			 9 |   |   |   |   |   |   |   |   |   |   |
+			   |---|---|---|---|---|---|---|---|---|---|
+			10 |   |   |   |   |   |   |   |   |   |   |
+			   +---------------------------------------+\n
+   		EOS
 	end
 
 	def reset_board
 		reset_screen
 		print_empty_board
 	end
+
+	def print_current_board(board)
+		reset_board
+
+		cursor_to_start
+
+		10.times do |row|
+			print_row(board, row)
+
+			advance_down
+		end
+	end
+
+	def cursor_to_start
+		print "\e[4;6H"
+	end
+
+	def print_row(board, row)
+		10.times do |col|
+			print_status(board.cell_at(row, col).hit_status)
+
+			advance_right
+		end
+	end
+
+	def advance_right
+		print "\e[3C"		# move cursor right one cell
+	end
+
+	def advance_down
+		print "\e[2B"		# move cursor down one row
+		print "\e[40D"	# move cursor left to start of row
+	end
+
+	def print_status(status)
+		if status == :hit
+			print "X"
+		elsif status == :miss
+			print "/"
+		elsif status == :open
+			print " "
+		end
+	end
+
+	# methods for testing
 
 	def hit(x,y)
 		row = 2 + (x * 4)
@@ -66,4 +137,4 @@
 		print "/"
 		print "\e[45;1H"
 	end
-# end
+end
