@@ -4,7 +4,7 @@ require_relative '../helpers/boat_helpers'
 
 class Player
 	attr_accessor :board
-	attr_reader :type, :fleet, :name, :volley
+	attr_reader :type, :fleet, :name, :volley_size
 
 	def initialize(options = {})
 		lengths = options[:lengths]
@@ -15,8 +15,12 @@ class Player
 		@name ||= "Player"
 		@type = options[:type] # :human or :computer
 		@fleet = generate_fleet(lengths)
-		@volley = options[:volley]
-		@volley ||= @fleet.length
+		@volley_size = options[:volley_size]
+		@volley_size ||= @fleet.length
+
+		if @type == :computer
+			@name = "Computer"
+		end
 	end
 
 	def boats_remaining
@@ -26,7 +30,7 @@ class Player
 	end
 
 	def boat_sunk
-		@volley -= 1
+		@volley_size -= 1
 	end
 
 	def defeated?
