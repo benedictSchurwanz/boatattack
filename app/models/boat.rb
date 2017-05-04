@@ -38,13 +38,13 @@ class Boat
 	private
 
 	def boat_namer
-		names = [nil, "submarine", "destroyer", "cruiser", "battleship", "carrier"]
+		names = [nil, "Submarine", "Destroyer", "Cruiser", "Battleship", "Carrier"]
 
 		names[@length]
 	end
 
 	def boat_length
-		lengths = {"carrier" => 5, "battleship" => 4, "cruiser" => 3, "destroyer" => 2, "submarine" => 1}
+		lengths = {"Carrier" => 5, "Battleship" => 4, "Cruiser" => 3, "Destroyer" => 2, "Submarine" => 1}
 
 		lengths[@name]
 	end
