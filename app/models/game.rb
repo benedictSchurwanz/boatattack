@@ -1,7 +1,10 @@
 require_relative 'player'
 require_relative '../helpers/boat_helpers'
+require_relative '../views/view'
 
 class Game
+	include View
+	
 	attr_reader :players
 
 	def initialize(options = {})
@@ -47,32 +50,48 @@ class Game
 		end
 	end
 
+	############################ turn ##########################
+
 	def turn(player, opponent)
-		volley = player.volley
+		volley_size = player.volley_size
 
-		volley.times do 
-			target = opponent.choose_cell
+		volley_size.times do 
+			target = get_target_from(opponent)
+			# target will be the particular object that lives on the opponent's board
 
-			opponent.fired_upon(target)
-			volley -= 1
+			result = fire_on(target)
 			
-			report_hit_status(target)
+			report_shot(result)	# views
 			
 			if target.hit_status == :hit 
 				if target.boat.sunk? 
-					report_sunk(target.boat)
+					report_sunk(target.boat) # Views method
 					
 					opponent.boat_sunk
+
+					if opponent.defeated?
+						game_won_by(player)
+
+					 	break
+					end
 				end
 			end
 		end
 
-		if opponent.defeated?
-			game_won_by(player)
-		end
+		end_of_turn
 	end
 
-	private
+	private #####################################################
+
+	def fire_on(target)
+		target.shoot_at
+
+		target.hit_status
+	end
+
+	def get_target_from(player)
+		player.random_cell
+	end
 
 	def boat_will_fit?(starting_cell, boat_length, orientation)
 		row = starting_cell.row
