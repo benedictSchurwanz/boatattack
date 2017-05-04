@@ -5,6 +5,8 @@ class Board
 	COLUMNS = (0..9).to_a
 
 	def initialize
+		@hits = 0
+		@misses = 0
 		@board = blank_board
 	end
 
@@ -14,6 +16,14 @@ class Board
 
 	def random_cell
 		@board[random_row][random_column]
+	end
+
+	def random_open_cell # not yet fired upon
+		begin
+			cell = random_cell
+		end while cell.open?
+
+		cell
 	end
 
 	def random_empty_cell
@@ -30,6 +40,34 @@ class Board
 		end while cell.boat == :empty
 
 		cell
+	end
+
+	def hits
+		how_many_hits = 0
+
+		ROWS.each do |row|
+			COLUMNS.each do |col|
+				if cell_at(row, col).hit_status == :hit
+					how_many_hits += 1
+				end
+			end
+		end
+
+		how_many_hits
+	end
+
+	def misses
+		how_many_misses = 0
+
+		ROWS.each do |row|
+			COLUMNS.each do |col|
+				if cell_at(row, col).hit_status == :miss
+					how_many_misses += 1
+				end
+			end
+		end
+
+		how_many_misses
 	end
 
 	private
