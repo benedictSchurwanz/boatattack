@@ -13,7 +13,7 @@ class Cell
 		@boat = boat
 	end
 
-  def shot_at
+  def shoot_at
     if @hit_status == :open
       if @boat == :empty
         @hit_status = :miss
@@ -25,6 +25,12 @@ class Cell
     else
       return false
     end
+
+    return true
+  end
+
+  def open?
+    @hit_status == :open
   end
 
 	# def hit
