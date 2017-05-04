@@ -33,25 +33,25 @@ describe 'cell' do
 		before(:each) { test_cell.occupied_by(test_boat) }
 
 		it 'can be hit if it contains a boat' do 
-			test_cell.shot_at
+			test_cell.shoot_at
 
 			expect(test_cell.hit_status).to eq :hit
 		end
 
 		it "can't be hit if it doesn't contain a boat" do 
-			shot = test_two.shot_at
+			test_two.shoot_at
 
 			expect(test_two.hit_status).not_to eq :hit
 		end
 
 		it 'can be missed if it doesnt contain a boat' do 
-			test_two.shot_at
+			test_two.shoot_at
 
 			expect(test_two.hit_status).to eq :miss
 		end
 
 		it "can't be missed if it doesn't contain a boat" do 
-			test_cell.shot_at
+			test_cell.shoot_at
 
 			expect(test_cell.hit_status).not_to eq :miss
 		end

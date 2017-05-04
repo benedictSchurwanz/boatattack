@@ -26,7 +26,7 @@ describe 'Player' do
 	end
 
 	it 'knows how many shots it can fire this turn' do 
-		expect(player.volley).to eq player.boats_remaining
+		expect(player.volley_size).to eq player.boats_remaining
 	end
 
 	it 'defaults to Bednar fleet' do 
@@ -37,6 +37,6 @@ describe 'Player' do
 		expect(player.fleet[4].length).to eq 2
 		expect(player.fleet[5].length).to eq 1
 		expect(player.fleet[6].length).to eq 1
-		expect(player.fleet[7]).to be_falsey
+		expect(player.fleet[7]).to be nil
 	end
 end
