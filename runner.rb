@@ -34,4 +34,4 @@ game.setup
 # 	end
 # end
 
-# game.print_current_board(game.players[:one].board)
+# game.print_current_board(game.players[:one].board, player)

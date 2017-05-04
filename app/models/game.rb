@@ -11,7 +11,7 @@ class Game
 		lengths = options[:lengths] 
 		lengths ||= bednar_fleet_lengths
 
-		@players = {one: Player.new(name: "One", type: :human, lengths: lengths), two: Player.new(name: "Two", type: :computer, lengths: lengths)}
+		@players = {one: Player.new(name: "One", type: :human, lengths: lengths), two: Player.new(type: :computer, lengths: lengths)}
 	end
 
 	def setup
@@ -57,7 +57,7 @@ class Game
 
 		volley_size.times do 
 			target = get_target_from(opponent)
-			# target will be the particular object that lives on the opponent's board
+			# target will be the particular object from the opponent's board
 
 			result = fire_on(target)
 			
@@ -78,7 +78,7 @@ class Game
 			end
 		end
 
-		end_of_turn
+		# end_of_turn
 	end
 
 	private #####################################################
