@@ -10,7 +10,7 @@ class Player
 		lengths = options[:lengths]
 		lengths ||= bednar_fleet_lengths
 
-		@board = Board.new
+		@board = Board.new(player: self)
 		@name = options[:name]
 		@name ||= "Player"
 		@type = options[:type] # :human or :computer

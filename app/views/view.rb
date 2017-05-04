@@ -1,6 +1,7 @@
-module View # turn this into a module and include it in the Game class (the controller)
+module View
 	# print "\e[x;yH" - moves cursor to line x column y
-	# 
+	
+	################## report methods #################
 
 	def report_shot(cell)
 		if cell.hit_status == :hit 
@@ -11,11 +12,11 @@ module View # turn this into a module and include it in the Game class (the cont
 	end
 
 	def report_hit
-		print "You scored a hit!"
+		print "You scored a hit! KABLOOIE!"
 	end
 
 	def report_miss
-		print "You missed."
+		print "You missed. SPLASH!"
 	end
 
 	def report_sunk(boat)
@@ -25,6 +26,8 @@ module View # turn this into a module and include it in the Game class (the cont
 	def game_won_by(player)
 		print "#{player.name} wins!"
 	end
+
+	################# print methods ###################
 
 	def clear_screen
 		print "\e[2J"
@@ -71,8 +74,10 @@ module View # turn this into a module and include it in the Game class (the cont
 		print_empty_board
 	end
 
-	def print_current_board(board)
+	def print_current_board(board, player)
 		reset_board
+
+		print_player(player)
 
 		cursor_to_start
 
@@ -81,6 +86,11 @@ module View # turn this into a module and include it in the Game class (the cont
 
 			advance_down
 		end
+	end
+
+	def print_player(player)
+		print "\e[1;15H"
+		print "#{player.name}'s Turn"
 	end
 
 	def cursor_to_start

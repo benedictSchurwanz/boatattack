@@ -4,10 +4,13 @@ class Board
 	ROWS = (0..9).to_a
 	COLUMNS = (0..9).to_a
 
-	def initialize
+	attr_reader :player
+
+	def initialize(options = {})
 		@hits = 0
 		@misses = 0
 		@board = blank_board
+		@player = options[:player]
 	end
 
 	def cell_at(row, col)
