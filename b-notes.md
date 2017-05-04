@@ -128,6 +128,13 @@ number of shots per turn is equal to number of boats player has in play
 
 
 
+## Views for turns
+
+	- print the blank board
+	- iterate through the stored board, print X if hit, / if miss, blank space if open
+	- need a method to move to a new row, 
+	- one to move forward to the next square until the end
+		- needs to either check if the next square is a valid square, or check if the current square is a valid square. Could just check the index. Index should be checked outside the method by the method that is stringing these together. It could iterate from 0-9 and then do the next row, until row 9 is reached. 
 
 
 
