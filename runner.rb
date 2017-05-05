@@ -23,7 +23,7 @@ game.setup
 # 	puts "\n"
 # end
 
-## fires at all cells on player one's board and prints that board
+# fires at all cells on player one's board and prints that board
 # player = game.players[:one]
 
 # 10.times do |row|
