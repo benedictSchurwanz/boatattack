@@ -11,7 +11,7 @@ class Game
 		lengths = options[:lengths] 
 		lengths ||= bednar_fleet_lengths
 
-		@players = {one: Player.new(name: "One", type: :human, lengths: lengths), two: Player.new(type: :computer, lengths: lengths)}
+		@players = {one: Player.new(name: "Player One", type: :human, lengths: lengths), two: Player.new(type: :computer, lengths: lengths)}
 	end
 
 	def setup
@@ -54,12 +54,20 @@ class Game
 
 	def turn(player, opponent)
 		volley_size = player.volley_size
+		won = false
+
+		print_current_board(opponent.board, player)
 
 		volley_size.times do 
-			target = get_target_from(opponent)
+			if player.type == :human
+				target = user_select_target(opponent)
+			elsif player.type == :computer
+				target = get_target_from(opponent)
+			end
 			# target will be the particular object from the opponent's board
 
 			result = fire_on(target)
+			player.shots_fired += 1
 			
 			report_shot(result)	# views
 			
@@ -72,22 +80,28 @@ class Game
 					if opponent.defeated?
 						game_won_by(player)
 
+						won = true
+
 					 	break
 					end
 				end
 			end
 		end
-
-		# end_of_turn
+		
+		if won
+			print_score
+		else
+			end_of_turn
+		end
 	end
-
-	private #####################################################
 
 	def fire_on(target)
 		target.shoot_at
 
 		target.hit_status
 	end
+
+	private #####################################################
 
 	def get_target_from(player)
 		player.random_cell

@@ -3,7 +3,8 @@ require_relative 'boat'
 require_relative '../helpers/boat_helpers'
 
 class Player
-	attr_accessor :board
+	attr_accessor :shots_fired
+	attr_reader :board
 	attr_reader :type, :fleet, :name, :volley_size
 
 	def initialize(options = {})
@@ -14,13 +15,13 @@ class Player
 		@name = options[:name]
 		@name ||= "Player"
 		@type = options[:type] # :human or :computer
+		@name = "Computer" if @type == :computer
+		
 		@fleet = generate_fleet(lengths)
 		@volley_size = options[:volley_size]
 		@volley_size ||= @fleet.length
 
-		if @type == :computer
-			@name = "Computer"
-		end
+		@shots_fired = 0
 	end
 
 	def boats_remaining

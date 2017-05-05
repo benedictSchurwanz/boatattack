@@ -12,15 +12,15 @@ module View
 	end
 
 	def report_hit
-		print "You scored a hit! KABLOOIE!"
+		print "\nYou scored a hit! KABLOOIE!"
 	end
 
 	def report_miss
-		print "You missed. SPLASH!"
+		print "\nYou missed. SPLASH!"
 	end
 
 	def report_sunk(boat)
-		print "You sunk my #{boat.name}!"
+		print "\nYou sunk my #{boat.name}!"
 	end
 
 	def game_won_by(player)
@@ -86,6 +86,8 @@ module View
 
 			advance_down
 		end
+
+		cursor_to_end
 	end
 
 	def print_player(player)
@@ -122,6 +124,79 @@ module View
 		elsif status == :open
 			print " "
 		end
+	end
+
+	def cursor_to_end
+		print "\e[25;1H"
+	end
+
+	def end_of_turn
+		print "\nPress enter to continue. "
+		gets.chomp
+	end
+
+	def print_score
+		
+	end
+
+	#################### Input ################
+
+	def user_select_target(opponent)
+		board = opponent.board
+
+		begin
+			print "Please enter coordinates (a letter and a number; e.g. 'a,1')  "
+			input = gets.chomp
+
+			valid = validate(input)
+
+		end while !valid
+
+		indices = convert_coordinates(input)
+
+		row = indices[0]
+		col = indices[1]
+
+		board.cell_at(row, col)
+	end
+
+	def validate(input)
+		if input.match(/[a-zA-Z],\s*\d{1,2}/)
+
+			return true
+		else
+			puts "Please enter coordinates in the correct format (\"a, 1\") "
+
+			return false
+		end
+	end
+
+	def convert_coordinates(input)
+		number = get_number(input)
+		row = convert_number_to_index(number)
+
+		letter = get_letter(input)
+		column = convert_letter_to_index(letter)
+
+		coordinates = [row, column]
+	end
+
+	def get_letter(coords)
+		coords.match(/\A[a-zA-Z]/)
+	end
+
+	def get_number(coords)
+		coords.match(/(\d+)\s*\z/)
+	end
+
+	def convert_letter_to_index(letter)
+		columns = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+
+		columns.index(letter.downcase)
+	end
+
+	def convert_number_to_index(number)
+		number.to_i - 1
 	end
 
 	# methods for testing
