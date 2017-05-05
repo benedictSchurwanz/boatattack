@@ -3,9 +3,9 @@ require_relative 'boat'
 require_relative '../helpers/boat_helpers'
 
 class Player
-	attr_accessor :shots_fired
+	attr_accessor :shots_fired, :won
 	attr_reader :board
-	attr_reader :type, :fleet, :name, :volley_size
+	attr_reader :type, :fleet, :name
 
 	def initialize(options = {})
 		lengths = options[:lengths]
@@ -20,11 +20,17 @@ class Player
 		@name ||= "Player"
 		
 		@fleet = generate_fleet(lengths)
-
-		@volley_size = options[:volley_size]
-		@volley_size ||= @fleet.length
+		
+		# this not used at this time, volley size will be calculated from boats_remaining
+		# but it will need to be refactored into an instance variable if there are options for different volley sizes
+		# @volley_size = options[:volley_size] 
+		# @volley_size ||= @fleet.length
 
 		@shots_fired = 0
+
+		@won = false
+
+		# TBI: retrieve from db: how many games won, how many lost
 	end
 
 	def new_board
@@ -37,8 +43,8 @@ class Player
 		boats
 	end
 
-	def boat_sunk
-		@volley_size -= 1
+	def volley_size
+		boats_remaining.length
 	end
 
 	def defeated?
