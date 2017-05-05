@@ -11,7 +11,7 @@ class Player
 		lengths = options[:lengths]
 		lengths ||= bednar_fleet_lengths
 
-		@board = Board.new(player: self)
+		@board = new_board
 		@name = options[:name]
 		@name ||= "Player"
 		@type = options[:type] # :human or :computer
@@ -22,6 +22,10 @@ class Player
 		@volley_size ||= @fleet.length
 
 		@shots_fired = 0
+	end
+
+	def new_board
+		Board.new(player: self)
 	end
 
 	def boats_remaining
@@ -44,9 +48,13 @@ class Player
 		fleet = []
 
 		lengths.each do |boat_length|
-			fleet << Boat.new(length: boat_length, player: self)
+			fleet << new_boat(boat_length)
 		end
 
 		fleet
+	end
+
+	def new_boat(length)
+		Boat.new(length: length, player: self)
 	end
 end

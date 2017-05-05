@@ -11,7 +11,11 @@ class Game
 		lengths = options[:lengths] 
 		lengths ||= bednar_fleet_lengths
 
-		@players = {one: Player.new(name: "Player One", type: :human, lengths: lengths), two: Player.new(type: :computer, lengths: lengths)}
+		@players = {one: new_player(name: "Player One", type: :human, lengths: lengths), two: new_player(type: :computer, lengths: lengths)}
+	end
+
+	def new_player(args = {})
+		Player.new(name: args[:name], type: args[:type], lengths: args[:lengths])
 	end
 
 	def setup
@@ -69,7 +73,7 @@ class Game
 			result = fire_on(target)
 			player.shots_fired += 1
 			
-			report_shot(result)	# views
+			report_shot(result, player.type)	# views
 			
 			if target.hit_status == :hit 
 				if target.boat.sunk? 
@@ -95,13 +99,21 @@ class Game
 		end
 	end
 
+	###################### Play #################################
+
+	def play
+		setup
+
+
+	end
+
+	# private #####################################################
+
 	def fire_on(target)
 		target.shoot_at
 
 		target.hit_status
 	end
-
-	private #####################################################
 
 	def get_target_from(player)
 		player.random_cell
