@@ -106,12 +106,27 @@ class Game
 		setup
 
 		while !@won
+			@players.each do |player|
+				opponent = get_opponent(player)
 
+			end
 		end
 
 	end
 
 	# private #####################################################
+	
+	def get_opponent(player)
+		opponent = nil
+
+		@players.each do |key, p|
+			if p != player 
+				opponent = p
+			end
+		end
+
+		opponent
+	end
 
 	def fire_on(target)
 		target.shoot_at
