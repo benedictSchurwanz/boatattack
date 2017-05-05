@@ -31,7 +31,7 @@ class Player
 	def boats_remaining
 		boats = @fleet.find_all { |boat| boat.afloat? }
 
-		boats.length
+		boats
 	end
 
 	def boat_sunk
@@ -39,7 +39,7 @@ class Player
 	end
 
 	def defeated?
-		boats_remaining <= 0
+		boats_remaining.length <= 0
 	end
 
 	private
