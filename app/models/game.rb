@@ -5,13 +5,14 @@ require_relative '../views/view'
 class Game
 	include View
 	
-	attr_reader :players
+	attr_reader :players, :won
 
 	def initialize(options = {})
 		lengths = options[:lengths] 
 		lengths ||= bednar_fleet_lengths
 
 		@players = {one: new_player(name: "Player One", type: :human, lengths: lengths), two: new_player(type: :computer, lengths: lengths)}
+		@won = false
 	end
 
 	def new_player(args = {})
@@ -104,6 +105,9 @@ class Game
 	def play
 		setup
 
+		while !@won
+
+		end
 
 	end
 
