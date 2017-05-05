@@ -12,12 +12,15 @@ class Player
 		lengths ||= bednar_fleet_lengths
 
 		@board = new_board
-		@name = options[:name]
-		@name ||= "Player"
+
 		@type = options[:type] # :human or :computer
+
+		@name = options[:name]
 		@name = "Computer" if @type == :computer
+		@name ||= "Player"
 		
 		@fleet = generate_fleet(lengths)
+
 		@volley_size = options[:volley_size]
 		@volley_size ||= @fleet.length
 
