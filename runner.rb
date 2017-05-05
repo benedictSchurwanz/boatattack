@@ -35,3 +35,13 @@ game.setup
 # end
 
 # game.print_current_board(game.players[:one].board, player)
+
+# player1 = game.players[:one]
+# puts "player1 #{player1.name}"
+
+# opp = game.get_opponent(player1)
+
+# puts "player2 #{opp.name}"
+
+
+
