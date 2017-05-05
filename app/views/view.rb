@@ -3,20 +3,32 @@ module View
 	
 	################## report methods #################
 
-	def report_shot(cell)
+	def report_shot(cell, player_type)
 		if cell.hit_status == :hit 
-			report_hit
+			report_hit(player_type)
 		elsif cell.hit_status == :miss
-			report_miss
+			report_miss(player_type)
 		end
 	end
 
-	def report_hit
-		print "\nYou scored a hit! KABLOOIE!"
+	def report_hit(player_type)
+		if player_type == :human
+			print "\nYou scored a hit!"
+		elsif player_type == :computer
+			print "\nYou've been hit!"
+		end
+
+		print " KABLOOIE!"
 	end
 
-	def report_miss
-		print "\nYou missed. SPLASH!"
+	def report_miss(player_type)
+		if player_type == :human
+			print "\nYou missed."
+		elsif player_type == :computer
+			print "\nComputer missed!"
+		end
+
+		print " SPLASH!"
 	end
 
 	def report_sunk(boat)
@@ -24,7 +36,7 @@ module View
 	end
 
 	def game_won_by(player)
-		print "#{player.name} wins!"
+		print "\n#{player.name} wins!"
 	end
 
 	################# print methods ###################
