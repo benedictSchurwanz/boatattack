@@ -13,10 +13,22 @@ class Game
 
 		@players = {one: new_player(name: "Player One", type: :human, lengths: lengths), two: new_player(type: :computer, lengths: lengths)}
 		@won = false
+
+		@score = score_setup
 	end
 
 	def new_player(args = {})
 		Player.new(name: args[:name], type: args[:type], lengths: args[:lengths])
+	end
+
+	def score_setup
+		score_array = {}
+
+		@players.each do |player, score|
+			score_array[player] = { shots_fired: player.shots_fired, boats_sunk: player.boats_sunk, hits: player.board.hits, misses: player.board.misses }
+		end
+
+		score_array
 	end
 
 	def setup
@@ -59,7 +71,6 @@ class Game
 
 	def turn(player, opponent)
 		volley_size = player.volley_size
-		won = false
 
 		print_current_board(opponent.board, player)
 
@@ -69,7 +80,7 @@ class Game
 			elsif player.type == :computer
 				target = get_target_from(opponent)
 			end
-			# target will be the particular object from the opponent's board
+			# target will be the particular Cell object from the opponent's board
 
 			result = fire_on(target)
 			player.shots_fired += 1
@@ -80,12 +91,10 @@ class Game
 				if target.boat.sunk? 
 					report_sunk(target.boat) # Views method
 					
-					opponent.boat_sunk
-
 					if opponent.defeated?
 						game_won_by(player)
 
-						won = true
+						@won = true
 
 					 	break
 					end
@@ -93,11 +102,9 @@ class Game
 			end
 		end
 		
-		if won
-			print_score
-		else
-			end_of_turn
-		end
+		game_won_by(player) if @won
+		
+		end_of_turn
 	end
 
 	###################### Play #################################
@@ -109,9 +116,13 @@ class Game
 			@players.each do |player|
 				opponent = get_opponent(player)
 
+				turn(player, opponent)
+
+				break if @won
 			end
 		end
 
+		print_score
 	end
 
 	# private #####################################################

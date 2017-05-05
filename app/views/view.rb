@@ -36,6 +36,8 @@ module View
 	end
 
 	def game_won_by(player)
+		player.won = true
+		
 		print "\n#{player.name} wins!"
 	end
 
