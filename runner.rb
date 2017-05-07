@@ -2,8 +2,10 @@ require_relative './app/models/game'
 
 game = Game.new
 
+game.play
+
 # p game.players
-game.setup
+# game.setup
 
 # puts game.players[:one].fleet[0].name
 # puts game.players[:one].fleet[0].length
