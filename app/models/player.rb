@@ -3,7 +3,7 @@ require_relative 'boat'
 require_relative '../helpers/boat_helpers'
 
 class Player
-	attr_accessor :shots_fired, :won
+	attr_accessor :shots_fired, :won, :boats_sunk
 	attr_reader :board
 	attr_reader :type, :fleet, :name
 
@@ -27,6 +27,7 @@ class Player
 		# @volley_size ||= @fleet.length
 
 		@shots_fired = 0
+		@boats_sunk = 0
 
 		@won = false
 
