@@ -24,7 +24,7 @@ class Board
 	def random_open_cell # not yet fired upon
 		begin
 			cell = random_cell
-		end while cell.open?
+		end until cell.open?
 
 		cell
 	end
@@ -32,7 +32,7 @@ class Board
 	def random_empty_cell
 		begin
 			cell = random_cell
-		end while cell.boat != :empty
+		end until cell.boat == :empty
 
 		cell
 	end
