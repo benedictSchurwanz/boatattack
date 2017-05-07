@@ -4,10 +4,10 @@ class Boat
 	def initialize(args)
 		if args[:length] 
 			@length = args[:length]
-			@name = boat_namer
+			@name = boat_namer(@length)
 		elsif args[:name] 
 			@name = args[:name]
-			@length = boat_length
+			@length = boat_length(@name)
 		end
 
 		@player = args[:player]
@@ -37,15 +37,15 @@ class Boat
 
 	private
 
-	def boat_namer
+	def boat_namer(length)
 		names = [nil, "Submarine", "Destroyer", "Cruiser", "Battleship", "Carrier"]
 
-		names[@length]
+		names[length]
 	end
 
-	def boat_length
+	def boat_length(name)
 		lengths = {"Carrier" => 5, "Battleship" => 4, "Cruiser" => 3, "Destroyer" => 2, "Submarine" => 1}
 
-		lengths[@name]
+		lengths[name]
 	end
 end
