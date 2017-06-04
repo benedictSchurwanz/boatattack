@@ -138,12 +138,43 @@ number of shots per turn is equal to number of boats player has in play
 
 
 
+* debug user_select_target
+	begin
+		loop do 
+			print "enter coords"
+			input = gets.chomp
+
+			break if !validate(input)
+			...
+				def validate(input)
+					if input doesn't match this pattern ...
 
 
 
+## Computer AI improvement
+
+*	shoot in a pattern
+	- diagonal lines, every other square
+		- random squares within the lattice pattern
+		- continue until all odd squares are shot at, 
+		- then do even squares
+	- other patterns?
+
+* when scored a hit
+	- shoot up, right, left, down to find the rest of the boat
+	- when another hit is scored, continue in that direction
+	- repeat until miss
+	- resume the shooting pattern
 
 
 
+### Firing patterns
+
+	- could create an array (or list?) of cells in random order on the given pattern
+
+* Diagonal lines
+	- add coordinate indices, result is even or odd
+		- run thru all evens, then all odds
 
 
 

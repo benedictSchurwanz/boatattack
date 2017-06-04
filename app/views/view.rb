@@ -3,28 +3,48 @@ module View
 	
 	################## report methods #################
 
-	def report_shot(cell)
-		if cell.hit_status == :hit 
-			report_hit
-		elsif cell.hit_status == :miss
-			report_miss
+	def report_shot(result, player_type)
+		if result == :hit 
+			report_hit(player_type)
+		elsif result == :miss
+			report_miss(player_type)
 		end
 	end
 
-	def report_hit
-		print "\nYou scored a hit! KABLOOIE!"
+	def report_hit(player_type)
+		if player_type == :human
+			print "\nYou scored a hit!"
+		elsif player_type == :computer
+			print "\nYou've been hit!"
+		end
+
+		print " KABLOOIE!\n"
 	end
 
-	def report_miss
-		print "\nYou missed. SPLASH!"
+	def report_miss(player_type)
+		if player_type == :human
+			print "\nYou missed."
+		elsif player_type == :computer
+			print "\nComputer missed!"
+		end
+
+		print " SPLASH!\n"
 	end
 
 	def report_sunk(boat)
-		print "\nYou sunk my #{boat.name}!"
+		if boat.player.type == :human
+			print "I sunk your "
+		elsif boat.player.type == :computer
+			print "You sunk my "
+		end
+
+		print "#{boat.name}! GLUG GLUG GLUG...\n"
 	end
 
 	def game_won_by(player)
-		print "#{player.name} wins!"
+		player.won = true
+
+		print "\n#{player.name} wins!\n"
 	end
 
 	################# print methods ###################
@@ -77,7 +97,7 @@ module View
 	def print_current_board(board, player)
 		reset_board
 
-		print_player(player)
+		print_player(board.player, player)
 
 		cursor_to_start
 
@@ -87,11 +107,14 @@ module View
 			advance_down
 		end
 
+		print_boats_remaining(board.player) # opponent's boats
+
 		cursor_to_end
 	end
 
-	def print_player(player)
+	def print_player(opponent, player)
 		print "\e[1;15H"
+		
 		print "#{player.name}'s Turn"
 	end
 
@@ -101,7 +124,14 @@ module View
 
 	def print_row(board, row)
 		10.times do |col|
-			print_status(board.cell_at(row, col).hit_status)
+			cell = board.cell_at(row, col)
+
+			if cell.boat != :empty && board.player.type == :human 
+				# puts "boat in cell #{cell.boat.name.chr}, player type #{board.player.type}"
+				print_boat_type(cell.boat)
+			end
+
+			print_status(cell)
 
 			advance_right
 		end
@@ -116,13 +146,72 @@ module View
 		print "\e[40D"	# move cursor left to start of row
 	end
 
-	def print_status(status)
+	def print_status(cell)
+		status = cell.hit_status
+	
 		if status == :hit
 			print "X"
 		elsif status == :miss
 			print "/"
-		elsif status == :open
-			print " "
+		else
+			print "\e[1C"
+		end
+	end
+
+	def print_boat_type(boat)
+		hsh = { "Battleship" => "B", "Carrier" => "C", "Cruiser" => "c", "Destroyer" => "D", "Submarine" => "S"  }
+
+		print "\e[1D"
+		print "#{hsh[boat.name]}"
+	end
+
+	def print_boats_remaining(player)
+		print "\e[3;48H"
+		print "  #{player.name}'s Fleet "
+
+		print "\e[4;48H"
+
+		fleet = player.fleet
+		line = 4
+
+		fleet.each do |boat|
+			print_boat_sunk_status(boat)
+			
+			if player.type == :human
+				print "#{boat_letter(boat.name)}: " 
+			else
+				print ""
+			end
+
+			print "#{boat.name}"
+
+			print "\e[#{line};64H" # move to the 64th space on this line
+			print_hit_slashes(boat) if player.type == :human
+			
+			line += 1
+			print "\e[#{line};48H" # move one line down and back to space 48
+		end
+	end
+
+	def boat_letter(boat_name)
+		if boat_name == "Cruiser"
+			return "c"
+		else
+			return boat_name.chr
+		end
+	end
+
+	def print_hit_slashes(boat)
+		boat.hits.times do 
+			print "/"
+		end
+	end
+
+	def print_boat_sunk_status(boat)
+		if boat.sunk?
+			print "X "
+		else
+			print "\e[2C"
 		end
 	end
 
@@ -130,42 +219,95 @@ module View
 		print "\e[25;1H"
 	end
 
-	def end_of_turn
+	def continue
+		sleep(0.3)
+		
 		print "\nPress enter to continue. "
 		gets.chomp
 	end
 
-	def print_score
-		
+	def print_score(player, stats)
+		puts "#{player.name}'s Score\n"
+
+		puts "Shots fired: #{stats[:shots_fired]}"
+		puts "Boats sunk: #{stats[:boats_sunk]}"
+		puts "Hits: #{stats[:hits]}"
+		puts "Misses: #{stats[:misses]}"
+	end
+
+	def print_computers(target)
+		coords = indices_to_coordinates(target)
+
+		print "(#{coords[0].upcase}, #{coords[1]})"
+	end
+
+	def indices_to_coordinates(cell)
+		x = cell.row
+		y = cell.col
+
+		col = index_to_letter(y)
+		row = index_to_number(x)
+
+		[col, row]
+	end
+
+	def index_to_letter(index)
+		("a".."j").to_a[index]
+	end
+
+	def index_to_number(index)
+		index + 1
 	end
 
 	#################### Input ################
 
-	def user_select_target(opponent)
-		board = opponent.board
-
+	def user_select_target(board)
 		begin
-			print "Please enter coordinates (a letter and a number; e.g. 'a,1')  "
-			input = gets.chomp
+			begin
+				print "Please enter coordinates (a letter and a number; e.g. 'a,1')  "
+				input = gets.chomp
 
-			valid = validate(input)
+				return :debug_winner if input == "I win"
 
-		end while !valid
+				indices = convert_coordinates(input)
+				
+				row = indices[0]
+				col = indices[1]
+			end until validate(input) && valid_coordinates(row, col)
 
-		indices = convert_coordinates(input)
+			target = board.cell_at(row, col) 
+		end until verify_open(target)
 
-		row = indices[0]
-		col = indices[1]
-
-		board.cell_at(row, col)
+		target 
 	end
 
 	def validate(input)
-		if input.match(/[a-zA-Z],\s*\d{1,2}/)
+		unless input.match? /[a-zA-Z],*\s*\d+/
+			puts "Please enter coordinates in the correct format"
 
+			return false
+		end
+
+		return true
+	end
+
+	def valid_coordinates(row, col)
+		if row.is_a?(Integer) && row >= 0 && row < 10 &&
+			 col.is_a?(Integer) && col >= 0 && col < 10 
+			
 			return true
 		else
-			puts "Please enter coordinates in the correct format (\"a, 1\") "
+			puts "Please enter valid coordinates."
+
+			return false
+		end
+	end
+
+	def verify_open(target)
+		if target.hit_status == :open
+			return true
+		else
+			print "\nPlease select a square you have not yet fired upon.\n"
 
 			return false
 		end
@@ -178,21 +320,21 @@ module View
 		letter = get_letter(input)
 		column = convert_letter_to_index(letter)
 
-		coordinates = [row, column]
+		[row, column]
 	end
 
 	def get_letter(coords)
-		coords.match(/\A[a-zA-Z]/)
+		coords.match(/\A[a-zA-Z]+/).to_s.downcase
 	end
 
 	def get_number(coords)
-		coords.match(/(\d+)\s*\z/)
+		coords.match(/(\d+)\s*\z/).to_s
 	end
 
 	def convert_letter_to_index(letter)
-		columns = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+		columns = ("a".."j").to_a
 
-		columns.index(letter.downcase)
+		columns.index(letter)
 	end
 
 	def convert_number_to_index(number)

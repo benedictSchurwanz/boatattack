@@ -2,8 +2,10 @@ require_relative './app/models/game'
 
 game = Game.new
 
+game.play
+
 # p game.players
-game.setup
+# game.setup
 
 # puts game.players[:one].fleet[0].name
 # puts game.players[:one].fleet[0].length
@@ -23,7 +25,7 @@ game.setup
 # 	puts "\n"
 # end
 
-## fires at all cells on player one's board and prints that board
+# fires at all cells on player one's board and prints that board
 # player = game.players[:one]
 
 # 10.times do |row|
@@ -35,3 +37,13 @@ game.setup
 # end
 
 # game.print_current_board(game.players[:one].board, player)
+
+# player1 = game.players[:one]
+# puts "player1 #{player1.name}"
+
+# opp = game.get_opponent(player1)
+
+# puts "player2 #{opp.name}"
+
+
+
