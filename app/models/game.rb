@@ -1,6 +1,7 @@
 require_relative 'player'
 require_relative '../helpers/boat_helpers'
 require_relative '../views/view'
+require 'pry'
 
 class Game
 	include View
@@ -8,31 +9,48 @@ class Game
 	attr_reader :players, :won
 
 	def initialize(options = {})
-		lengths = options[:lengths] 
-		lengths ||= bednar_fleet_lengths
+		@lengths = options[:lengths] 
+		@lengths ||= bednar_fleet_lengths
 
-		@players = {one: new_player(name: "Player One", type: :human, lengths: lengths), two: new_player(type: :computer, lengths: lengths)}
+		@players = Array.new 
+		players_setup
+
 		@won = false
+		@winner = nil
 
-		@score = score_setup
+		get_score
 	end
 
 	def new_player(args = {})
 		Player.new(name: args[:name], type: args[:type], lengths: args[:lengths])
 	end
 
-	def score_setup
-		score_array = {}
+	def players_setup
+		@players[0] = new_player(name: "Player One", type: :human, lengths: @lengths)
+		@players[1] = new_player(type: :computer, lengths: @lengths)
+	end
+
+	def get_score
+		@score = Hash.new
 
 		@players.each do |player, score|
-			score_array[player] = { shots_fired: player.shots_fired, boats_sunk: player.boats_sunk, hits: player.board.hits, misses: player.board.misses }
+			stats = Hash.new
+
+			opponent = get_opponent_of(player)
+
+			stats[:shots_fired] = player.shots_fired
+			stats[:boats_sunk] = player.boats_sunk
+			stats[:hits] = opponent.board.hits
+			stats[:misses] = opponent.board.misses
+
+			@score[player] = stats
 		end
 
-		score_array
+		@score
 	end
 
 	def setup
-		@players.each do |key, player|
+		@players.each do |player|
 			place_fleet(player)
 		end
 	end
@@ -60,8 +78,8 @@ class Game
 					end
 
 					break
-				else
-					next
+				# else
+				# 	next
 				end
 			end 
 		end
@@ -72,49 +90,71 @@ class Game
 	def turn(player, opponent)
 		volley_size = player.volley_size
 
-		print_current_board(opponent.board, player)
+		volley_size.times do |i|
+			print_current_board(opponent.board, player)
+			
+			puts "Shots remaining: #{volley_size - i}" if volley_size > 1
+			puts "Opponent boats afloat: #{opponent.boats_remaining.length}"
 
-		volley_size.times do 
-			if player.type == :human
-				target = user_select_target(opponent)
-			elsif player.type == :computer
-				target = get_target_from(opponent)
-			end
+			target = select_target(player.type, opponent.board)
 			# target will be the particular Cell object from the opponent's board
+
+			if target == :debug_winner
+				@won = true
+				@winner = human_player
+				return nil
+			end
 
 			result = fire_on(target)
 			player.shots_fired += 1
 			
+			print_current_board(opponent.board, player)
+			
+			print_computers(target) if player.type == :computer
+
 			report_shot(result, player.type)	# views
 			
 			if target.hit_status == :hit 
+				target.boat.hit
+
 				if target.boat.sunk? 
 					report_sunk(target.boat) # Views method
-					
+
+					player.boats_sunk += 1
+
 					if opponent.defeated?
 						game_won_by(player)
 
 						@won = true
+						@winner = player
 
 					 	break
 					end
 				end
 			end
+
+			continue
 		end
-		
-		game_won_by(player) if @won
-		
-		end_of_turn
+				
+		continue if @won 
 	end
 
-	###################### Play #################################
+	def select_target(type, opponent_board)
+		if type == :human
+			target = user_select_target(opponent_board)
+		elsif type == :computer
+			target = get_target_from(opponent_board)
+		end
+	end
+
+	###################### Play #########################
 
 	def play
 		setup
 
 		while !@won
 			@players.each do |player|
-				opponent = get_opponent(player)
+				opponent = get_opponent_of(player)
 
 				turn(player, opponent)
 
@@ -122,15 +162,25 @@ class Game
 			end
 		end
 
-		print_score
+		get_score
+
+		print_score(human_player, @score[human_player])
+	end
+
+	def human_player
+		# @players.each do |player|
+		# 	return player if player.type == :human
+		# end
+
+		@players[0]
 	end
 
 	# private #####################################################
 	
-	def get_opponent(player)
+	def get_opponent_of(player)
 		opponent = nil
 
-		@players.each do |key, p|
+		@players.each do |p|
 			if p != player 
 				opponent = p
 			end
@@ -145,8 +195,8 @@ class Game
 		target.hit_status
 	end
 
-	def get_target_from(player)
-		player.random_cell
+	def get_target_from(board)
+		board.random_open_cell
 	end
 
 	def boat_will_fit?(starting_cell, boat_length, orientation)
