@@ -8,7 +8,13 @@ I intend to work out the game logic as a text-based terminal command-line interf
 
 I intend to practice Agile workflow and good Git hygiene as if this were a team project, although I'll be working by myself.
 
-[Trello](https://trello.com/b/3tSJfxds/boat-attack) board for this project
+[Trello board](https://trello.com/b/3tSJfxds/boat-attack) for this project
+
+
+## Lessons learned
+
+[Battleblog!](battleblog.md)
+
 
 ### Additional Resources
 
@@ -18,6 +24,8 @@ I intend to practice Agile workflow and good Git hygiene as if this were a team 
 - [Manifesto for Agile Practices](http://agilemanifesto.org/)
 - [Trello](https://trello.com/) - great resource to organize workflow within a group project
 
+Command-line challenge format borrowed from Dev Bootcamp (Chicago Salamanders 2016), see the [original challenge readme](original-challenge-readme.md)
 
-Command-line challenge format borrowed from Dev Bootcamp (Chicago Salamanders 2016), see original-challenge-readme.md
+### Other fun stuff
 
+Re-writing this project in Java at [JavAttack](http://www.github.com/benedictify/JavAttack)
