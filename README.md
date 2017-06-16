@@ -10,6 +10,8 @@ I intend to practice Agile workflow and good Git hygiene as if this were a team 
 
 [Trello board](https://trello.com/b/3tSJfxds/boat-attack) for this project
 
+This is still very much a work in progress.
+
 
 ## Lessons learned
 
