@@ -12,11 +12,8 @@ It's fun to draw together ideas from different places through out my learning jo
 
 ## Thoughts I had while coding
 
-### 4/20/2017
-
 - I've been reading POODR, and I'm thinking I should take another look at how my classes are interacting with each other, and see if there are too many references from outside of the class that depend on the data structure inside a class. For example, maybe I should wrap the access to board positions inside a method, so I can say "give me a random cell" or "give me the cells that this boat occupies" 
 
-### 4/21/2017
 
 - I decided to change the way I referred to coordinates internally to the board -- moving to two arrays vs. two hashes with number keys and symbol keys -- and I only had to change code in one spot (the method that generates the blank board). I also had to change the method to see if the boat will fit in the current spot based on the starting position and direction and length, but the change of coordinates allowed me to simplify the fit check method. I think I succeeded at 'easy to change'!
 
