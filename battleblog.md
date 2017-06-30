@@ -3,6 +3,13 @@
 
 The main point for me of writing this project is for me to re-introduce myself to concepts I learned in Dev Bootcamp in the summer and fall of 2016, to take initially simple concepts and add layers of complexity, and to practice writing changeable code with good object oriented design. Much of my design approach was inspired by [Practical Object Oriented Design in Ruby](http://www.poodr.com) by [Sandi Metz](https://www.sandimetz.com). 
 
+I found it was very interesting that I could go back to concepts I feel like I've attained some level of mastery over -- such as introductory Ruby programming techniques that we learned in "Phase 1" of Dev Bootcamp -- and find new depth and understanding. 
+
+It reinforces a lesson that I started learning at DBC: you always have more to learn. Even when you think you know it. Perhaps especially then. 
+
+It's fun to draw together ideas from different places through out my learning journey and combine them in a way that I wouldn't have thought of the last time I went over this material. 
+
+
 ## Thoughts I had while coding
 
 ### 4/20/2017
