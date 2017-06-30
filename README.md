@@ -1,5 +1,7 @@
 # Boat Attack
 
+#### Follow this link to Ruby on Rails edition at [Rails Attack](https://github.com/benedictify/rails-attack.git)
+
 This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game. 
 
 This is intended to be nothing more than a fun solo project for coding practice. 
