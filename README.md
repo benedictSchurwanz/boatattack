@@ -1,7 +1,7 @@
 # Boat Attack
 
-#### Follow this link to Ruby on Rails edition at [Rails Attack](https://github.com/benedictify/rails-attack.git) (work in progress)
-#### Follow this link to Java edition at [JavAttack](https://github.com/benedictify/javattack.git) (work in progress)
+<!-- #### Follow this link to Ruby on Rails edition at [Rails Attack](https://github.com/benedictify/rails-attack.git) (work in progress) -->
+<!-- #### Follow this link to Java edition at [JavAttack](https://github.com/benedictify/javattack.git) (work in progress) -->
 
 This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game, that is most definitely not infringing on any copyrights of "Battleship". 
 
@@ -31,6 +31,6 @@ This is still very much a work in progress.
 
 Command-line challenge format borrowed from Dev Bootcamp (Chicago Salamanders 2016), see the [original challenge readme](original-challenge-readme.md)
 
-### Other fun stuff
+<!-- ### Other fun stuff -->
 
-Re-writing this project in Java at [JavAttack](http://www.github.com/benedictify/JavAttack)
+<!-- Re-writing this project in Java at [JavAttack](http://www.github.com/benedictify/JavAttack) -->
