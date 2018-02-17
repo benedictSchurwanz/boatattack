@@ -1,6 +1,6 @@
 # Boat Attack
 
-This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game, that is most definitely not infringing on any copyrights of "Battleship".
+This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game, that is most definitely not infringing on any copyrights of "Battleship", as written from scratch by me, based on notes about the rules of the game. (see [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)) and the original [challenge](challenge-readme.md) from Dev Bootcamp.)
 
 This is intended to be nothing more than a fun solo project for coding practice.
 
