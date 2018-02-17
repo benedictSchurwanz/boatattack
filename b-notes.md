@@ -3,7 +3,7 @@
 board: 10x10 - array? hash would allow storage of hit/miss/empty in each cell. could do array of hashes
 ?- could do a hash of hashes, to store the coordinates in form "A", "B", etc
 
-information needed to be stored in each cell: 
+information needed to be stored in each cell:
 	- boat type (or empty)
 	- hit (X), miss (/), not-yet-hit (0)
 	* could make a "cell" object
@@ -21,10 +21,10 @@ boat object needs to know:
 	- how many hits
 	- how many un-hit sections (hit-points remaining: health)
 	- where it is on the board (what cells does it occupy)
-boat behavior: 
+boat behavior:
 	- sunk? - notify player boat is sunk
 
-player object needs to know: 
+player object needs to know:
 	- how many boats are still alive - how many shots I have
 	- how many opponent boats are still alive
 	- its own board and the boats on it
@@ -58,13 +58,13 @@ number of shots per turn is equal to number of boats player has in play
 
 * create one computer player object and one human player object
 * player objects, on initialization, create a blank board filled with empty cells
-* place boats in cells 
+* place boats in cells
 	* random now, manual TBI
 
-	* need methods: 
+	* need methods:
 		- traverse forward (right/down)
 		- traverse backward (left/up)
-			- traversal methods: 
+			- traversal methods:
 				- you could separate the grabbing of the cells, and then pass the cell collection into a checker method
 					- grab_forward, grab_backward, empty_checker
 
@@ -82,7 +82,7 @@ number of shots per turn is equal to number of boats player has in play
 			- if there are enough empty spaces, put the current boat object in each of the cells, and put the cell objects in the boat's list of cells
 	- continue until all boats are placed
 
-* steps: 
+* steps:
 	- pick a boat (iterate thru boat list)
 	- pick a random empty cell (random_empty_cell)
 	- check if boat will fit horizontally (boat_will_fit?(horizontal = true))
@@ -132,15 +132,15 @@ number of shots per turn is equal to number of boats player has in play
 
 	- print the blank board
 	- iterate through the stored board, print X if hit, / if miss, blank space if open
-	- need a method to move to a new row, 
+	- need a method to move to a new row,
 	- one to move forward to the next square until the end
-		- needs to either check if the next square is a valid square, or check if the current square is a valid square. Could just check the index. Index should be checked outside the method by the method that is stringing these together. It could iterate from 0-9 and then do the next row, until row 9 is reached. 
+		- needs to either check if the next square is a valid square, or check if the current square is a valid square. Could just check the index. Index should be checked outside the method by the method that is stringing these together. It could iterate from 0-9 and then do the next row, until row 9 is reached.
 
 
 
 * debug user_select_target
 	begin
-		loop do 
+		loop do
 			print "enter coords"
 			input = gets.chomp
 
@@ -156,7 +156,7 @@ number of shots per turn is equal to number of boats player has in play
 *	shoot in a pattern
 	- diagonal lines, every other square
 		- random squares within the lattice pattern
-		- continue until all odd squares are shot at, 
+		- continue until all odd squares are shot at,
 		- then do even squares
 	- other patterns?
 
@@ -179,7 +179,7 @@ number of shots per turn is equal to number of boats player has in play
 
 
 
-
+testing 123
 
 
 
