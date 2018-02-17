@@ -1,18 +1,18 @@
 require_relative 'player'
 require_relative '../helpers/boat_helpers'
 require_relative '../views/view'
-require 'pry'
+# require 'pry'
 
 class Game
 	include View
-	
+
 	attr_reader :players, :won
 
 	def initialize(options = {})
-		@lengths = options[:lengths] 
+		@lengths = options[:lengths]
 		@lengths ||= bednar_fleet_lengths
 
-		@players = Array.new 
+		@players = Array.new
 		players_setup
 
 		@won = false
@@ -81,7 +81,7 @@ class Game
 				# else
 				# 	next
 				end
-			end 
+			end
 		end
 	end
 
@@ -92,7 +92,7 @@ class Game
 
 		volley_size.times do |i|
 			print_current_board(opponent.board, player)
-			
+
 			puts "Shots remaining: #{volley_size - i}" if volley_size > 1
 			puts "Opponent boats afloat: #{opponent.boats_remaining.length}"
 
@@ -107,17 +107,17 @@ class Game
 
 			result = fire_on(target)
 			player.shots_fired += 1
-			
+
 			print_current_board(opponent.board, player)
-			
+
 			print_computers(target) if player.type == :computer
 
 			report_shot(result, player.type)	# views
-			
-			if target.hit_status == :hit 
+
+			if target.hit_status == :hit
 				target.boat.hit
 
-				if target.boat.sunk? 
+				if target.boat.sunk?
 					report_sunk(target.boat) # Views method
 
 					player.boats_sunk += 1
@@ -135,8 +135,8 @@ class Game
 
 			continue
 		end
-				
-		continue if @won 
+
+		continue if @won
 	end
 
 	def select_target(type, opponent_board)
@@ -176,12 +176,12 @@ class Game
 	end
 
 	# private #####################################################
-	
+
 	def get_opponent_of(player)
 		opponent = nil
 
 		@players.each do |p|
-			if p != player 
+			if p != player
 				opponent = p
 			end
 		end
