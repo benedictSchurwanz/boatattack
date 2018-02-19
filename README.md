@@ -30,11 +30,28 @@ ruby runner.rb
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+<!-- What things you need to install the software and how to install them -->
+
+Install the latest version of Ruby. There are several [methods](https://www.ruby-lang.org/en/documentation/installation/) available to do this. Two package managers are [RVM](http://rvm.io) and [rbenv](https://github.com/rbenv/rbenv#installation). I use rbenv. If you don't already have it, you will need to install Homebrew as well. (Find it [here](https://brew.sh) and follow their instructions to install.)
+
+With Homebrew installed, to install rbenv, simply type
 
 ```
-Give examples
+brew install rbenv
 ```
+
+Then to install a version of Ruby, you can get a current list of available versions,
+
+```
+rbenv install -l
+```
+
+And then install your chosen version. Pick one that starts with just numbers. At this time the latest stable version is 2.4.2
+
+```
+rbenv install 2.4.2
+```
+
 
 ### Installing
 
