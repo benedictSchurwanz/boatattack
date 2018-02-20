@@ -55,25 +55,14 @@ rbenv install 2.4.2
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Nothing special about the development environment at this time, the program is pretty simple.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+<!-- Explain how to run the automated tests for this system -->
+
+
 
 ### Break down into end to end tests
 
