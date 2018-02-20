@@ -1,6 +1,8 @@
 # Boat Attack
 
-This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game, that is most definitely not infringing on any copyrights of "Battleship", as written from scratch by me, based on notes about the rules of the game. (see [Wikipedia](https://en.wikipedia.org/wiki/Battleship_(game)) and the original [challenge](challenge-readme.md) from Dev Bootcamp.)
+v0.1
+
+This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game, that is most definitely not infringing on any copyrights of "Battleship", as written from scratch by me, based on notes about the rules of the game. (see [Wikipedia](https://en.wikipedia.org/wiki/Battleship_\(game\)) and the original [challenge](challenge-readme.md) from Dev Bootcamp.)
 
 This is intended to be nothing more than a fun solo project for coding practice.
 
@@ -108,9 +110,9 @@ Command-line challenge format borrowed from Dev Bootcamp (Chicago Salamanders 20
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
  -->
-<!-- ## Versioning
+## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). -->
+We use [SemVer](http://semver.org/) for versioning. <!-- For the versions available, see the [tags on this repository](https://github.com/your/project/tags). -->
 
 ## Authors
 
