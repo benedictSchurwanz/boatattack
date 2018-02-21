@@ -1,8 +1,6 @@
-[![Build Status](https://travis-ci.org/benedictify/boat-attack.svg?branch=master)](https://travis-ci.org/benedictify/boat-attack)  [![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg)]()  [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]()
+[![Build Status](https://travis-ci.org/benedictify/boat-attack.svg?branch=master)](https://travis-ci.org/benedictify/boat-attack)  [![Codecov](https://img.shields.io/codecov/c/github/codecov/example-python.svg)]()  v0.1.0
 
 # Boat Attack
-
-v0.1
 
 This is a clone of the popular two-player naval boat-combat-blind-attacking-with-cannons-on-a-coordinate-grid game, that is most definitely not infringing on any copyrights of "Battleship", as written from scratch by me, based on notes about the rules of the game. (see [Wikipedia](https://en.wikipedia.org/wiki/Battleship_\(game\)) and the original [challenge](challenge-readme.md) from Dev Bootcamp.)
 
@@ -66,9 +64,13 @@ Nothing special about the development environment at this time, the program is p
 
 <!-- Explain how to run the automated tests for this system -->
 
-The test suite is written in RSpec.
+The test suite is written in RSpec, and the full suite can be run with 
 
+```
+rspec
+```
 
+in the main project folder.
 
 <!-- ### Break down into end to end tests
 
