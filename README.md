@@ -64,9 +64,11 @@ Nothing special about the development environment at this time, the program is p
 
 <!-- Explain how to run the automated tests for this system -->
 
-The test suite is written in RSpec
+The test suite is written in RSpec.
 
-### Break down into end to end tests
+
+
+<!-- ### Break down into end to end tests
 
 Explain what these tests test and why
 
@@ -81,7 +83,7 @@ Explain what these tests test and why
 ```
 Give an example
 ```
-
+ -->
 <!-- ## Deployment
 
 Add additional notes about how to deploy this on a live system
