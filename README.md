@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/benedictify/boat-attack.svg?branch=master)](https://travis-ci.org/benedictify/boat-attack)
+
+
+
 # Boat Attack
 
 v0.1
