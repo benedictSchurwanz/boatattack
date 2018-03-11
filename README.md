@@ -64,7 +64,7 @@ Nothing special about the development environment at this time, the program is p
 
 <!-- Explain how to run the automated tests for this system -->
 
-The test suite is written in RSpec, and the full suite can be run with 
+The test suite is written in RSpec, the full suite can be run with 
 
 ```
 rspec
