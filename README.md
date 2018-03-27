@@ -100,7 +100,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Lessons learned
 
-[Battleblog!](battleblog.md)
+[Battleblog!](https://medium.com/attack-of-the-boats) (on [medium.com](https://medium.com))
 
 ### Additional Resources
 
