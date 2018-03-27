@@ -10,7 +10,7 @@ I intend to work out the game logic as a text-based terminal command-line interf
 
 I intend to practice Agile workflow and good Git hygiene as if this were a team project, although I'll be working by myself.
 
-[Trello board](https://trello.com/b/3tSJfxds/boat-attack) for this project
+[Trello board](https://trello.com/b/s3MUzqmh/boat-attack-v02) for this project
 
 This is still very much a work in progress.
 
@@ -100,7 +100,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Lessons learned
 
-[Battleblog!](battleblog.md)
+[Battleblog!](https://medium.com/attack-of-the-boats) (on [medium.com](https://medium.com))
 
 ### Additional Resources
 
