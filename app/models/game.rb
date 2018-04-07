@@ -9,8 +9,8 @@ class Game
 	attr_reader :players, :won
 
 	def initialize(options = {})
-		@lengths = options[:lengths]
-		@lengths ||= bednar_fleet_lengths
+		@lengths = # options[:lengths] ||
+							 bednar_fleet_lengths
 
 		@players = Array.new
 		players_setup
@@ -78,8 +78,6 @@ class Game
 					end
 
 					break
-				# else
-				# 	next
 				end
 			end
 		end
