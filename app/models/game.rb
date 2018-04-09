@@ -237,7 +237,7 @@ class Game
 
 				col += 1
 			end
-		else
+		elsif orientation == :vertical
 			boat_length.times do
 				cells << player.board.cell_at(row, col)
 
