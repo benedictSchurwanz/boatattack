@@ -33,7 +33,7 @@ class Game
 	def get_score
 		@score = Hash.new
 
-		@players.each do |player, score|
+		@players.each do |player|
 			stats = Hash.new
 
 			opponent = get_opponent_of(player)

@@ -29,7 +29,7 @@ class Board
 		cell
 	end
 
-	def random_empty_cell
+	def random_empty_cell # no boat
 		begin
 			cell = random_cell
 		end until cell.boat == :empty
@@ -37,13 +37,13 @@ class Board
 		cell
 	end
 
-	def random_occupied_cell
-		begin
-			cell = random_cell
-		end while cell.boat == :empty
+	# def random_occupied_cell # with boat
+	# 	begin
+	# 		cell = random_cell
+	# 	end while cell.boat == :empty
 
-		cell
-	end
+	# 	cell
+	# end
 
 	def hits
 		how_many_hits = 0
